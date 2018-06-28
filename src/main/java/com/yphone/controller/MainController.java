@@ -84,7 +84,6 @@ public class MainController {
 
     @RequestMapping(value = "/register",method = RequestMethod.GET)
     public ModelAndView register(){
-
         ModelAndView model=new ModelAndView("register");
         model.addObject("p","register");
         return model;
