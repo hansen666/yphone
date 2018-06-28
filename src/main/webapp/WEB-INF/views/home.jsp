@@ -12,6 +12,6 @@
 </head>
 <body>
 <a href="login">登录</a>
-<a href="registerProcess">注册</a>
+<a href="register">注册</a>
 </body>
 </html>

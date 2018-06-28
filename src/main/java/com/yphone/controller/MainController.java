@@ -54,7 +54,7 @@ public class MainController {
     @RequestMapping(value = "/registerProcess",method = RequestMethod.POST)
     public String registerProcess(){
         //TODO 用户注册
-        
+
         return "success";
     }
 
@@ -83,7 +83,7 @@ public class MainController {
 
     @RequestMapping(value = "/register",method = RequestMethod.GET)
     public ModelAndView register(){
-        ModelAndView model=new ModelAndView("register");
+        ModelAndView model=new ModelAndView("login");
         model.addObject("p","register");
         return model;
     }
