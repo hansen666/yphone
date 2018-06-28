@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yphone.mappers.UserInfoMapper" >
+    <insert id="saveUser">
+        INSERT INTO user_info(
+        user_name,
+        password,
+        real_name,
+        phone,
+        user_card,
+        email,
+        gender,
+        gmt_create,
+        gmt_modified
+        ) VALUES(#{userName},#{password},#{realName},#{phone},
+        #{userCard},#{email},#{gender},#{gmt_create},#{gmt_modified});
+    </insert>
+    <select id="getPwdByUname" resultType="java.lang.String">
+        SELECT password from user_info where user_name=#{userName};
+    </select>
+    <select id="getPwdByPhone" resultType="java.lang.String">
+        SELECT password from user_info where phone=#{phone};
+    </select>
+    </mapper>
