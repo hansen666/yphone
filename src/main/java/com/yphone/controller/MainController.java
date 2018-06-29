@@ -34,22 +34,17 @@ public class MainController {
         //TODO 用户登录，返回数字用字符串形式，如“1”；
 
 
-//        String username=request.getParameter("userID");
-//        String password=request.getParameter("password");
-//        Writer writer=null;
-//        response.setCharacterEncoding("UTF-8");
-//        writer=response.getWriter();
-//
-//        if(username.equals("hansen")&&password.equals("123456"))
-//            writer.write("1");
-//        else if(username.equals("admin")&&password.equals("123"))
-//        writer.write("4");
-//        else writer.write("2");
-//
-//        if(writer!=null){
-//            writer.flush();
-//            writer.close();
-//        }
+        String username=request.getParameter("userID");
+        String password=request.getParameter("password");
+        int result=loginService.loginResult(username,password);
+        Writer writer=null;
+        response.setCharacterEncoding("UTF-8");
+        writer=response.getWriter();
+        writer.write(String.valueOf(result));
+        if(writer!=null){
+            writer.flush();
+            writer.close();
+        }
     }
 
     @RequestMapping(value = "/registerProcess",method = RequestMethod.POST)
