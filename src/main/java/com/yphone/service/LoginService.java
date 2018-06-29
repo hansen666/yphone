@@ -40,6 +40,8 @@ public class LoginService {
         return adminInfoMapper.isAdminExist(adminName)>0?true:false;
     }
 
+    //public boolean is
+
     public int loginResult(String account,String password){
         if(!isPhone(account)){  //检测到如果不是用手机号登录
             //先在管理员表中查询账户是否存在
@@ -68,6 +70,15 @@ public class LoginService {
     //判断是手机号还是用户名
     public boolean isPhone(String account){
         return account.length()==11 && account.matches("[0-9]{11}");
+    }
+
+    //注册功能
+    public int register(String phone,String userName){
+        if(userInfoMapper.isPhoneExist(phone)>0)
+            return 2;  //2-号码已被注册
+        if(userInfoMapper.isUserNameExit(userName)>0)
+            return 3;  //3-用户名已存在
+        return 1;
     }
 
 }

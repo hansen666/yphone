@@ -1,10 +1,13 @@
 package com.yphone.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.yphone.mappers.UserInfoMapper;
 import com.yphone.model.nochange.UserInfo;
 import com.yphone.service.LoginService;
+import com.yphone.utils.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,6 +28,11 @@ public class MainController {
 
     @Autowired
     private LoginService loginService;
+
+    @Autowired
+    private UserInfoMapper userInfoMapper;
+
+    private String code;
 
 
 
@@ -48,11 +56,34 @@ public class MainController {
     }
 
     @RequestMapping(value = "/registerProcess",method = RequestMethod.POST)
-    public String registerProcess(){
+    public void  registerProcess(@ModelAttribute UserInfo userInfo,HttpServletRequest request, HttpServletResponse response)throws IOException{
         //TODO 用户注册
+        //String code=request.getParameter("code");
+        Writer writer=null;
+        response.setCharacterEncoding("UTF-8");
+        writer=response.getWriter();
+       int checkResult=loginService.register(userInfo.getPhone(),userInfo.getUserName());
+       if(checkResult==2)    //号码已被注册
+           writer.write(String.valueOf(checkResult));
+       else if(checkResult==3)  //用户名已存在
+           writer.write(String.valueOf(checkResult));
+       else if(!code.equals(request.getParameter("code")))  //验证码错误
+           writer.write("4");
 
-        return "success";
+       else{    //注册成功，把记录插入到表中
+           userInfoMapper.insert(userInfo);
+           writer.write("1");
+       }
+
+        if(writer!=null){
+            writer.flush();
+            writer.close();
+        }
+
+       // return "success";
     }
+
+
 
 
 
@@ -74,6 +105,11 @@ public class MainController {
     public String home(){
 
         return "home";
+    }
+    @RequestMapping(value = "/sendCode",method = RequestMethod.POST)
+    public void sendCode(String phone){
+        code=Message.getResult(phone);
+       // return "sendCode";
     }
 
 

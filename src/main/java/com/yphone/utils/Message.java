@@ -82,7 +82,7 @@ public class Message {
         System.out.println(jsonObject);
         Object object = jsonObject.get("respCode");
         System.out.println("状态码："+object+"验证码："+randNum);
-        System.out.println(!object.equals("00000"));
+        //System.out.println(!object.equals("00000"));
         if (!object.equals("00000")) {
             return object.toString();
         }else{

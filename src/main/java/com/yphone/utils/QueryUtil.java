@@ -30,7 +30,7 @@ public class QueryUtil {
             for (String string : args) {
                 str.append(string);
             }
-            System.out.println("加密前：\t"+str.toString());
+            //System.out.println("加密前：\t"+str.toString());
 
             try {
                 MessageDigest digest = MessageDigest.getInstance("MD5");
@@ -48,7 +48,7 @@ public class QueryUtil {
                 e.printStackTrace();
             }
         }
-        System.out.println("加密后：\t"+result.toString());
+       // System.out.println("加密后：\t"+result.toString());
         return result.toString();
     }
     /*
