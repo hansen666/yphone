@@ -208,7 +208,7 @@ $('.getsms').click(function() {
 
 					dataType: "text",
 					data:{
-						"phone":phone=document.getElementById('phone-re').value
+						"code":phone.val()
 					},
 					success:function(data){
 						if(data == ""){
