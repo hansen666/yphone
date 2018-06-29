@@ -6,6 +6,10 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 
+
+
+
+@Component
 public interface UserInfoMapper extends MBGUserInfoMapper {
 
     void saveUser(UserInfo user);

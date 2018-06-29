@@ -21,4 +21,6 @@
     <select id="getPwdByPhone" resultType="java.lang.String">
         SELECT password from user_info where phone=#{phone};
     </select>
+
+
     </mapper>
