@@ -18,6 +18,7 @@ import java.io.Writer;
  * Created by chenhansen on 2018/5/21.
  */
 @Controller
+
 @RequestMapping("/")
 
 public class MainController {
@@ -103,6 +104,9 @@ public class MainController {
                 writer.close();
             }
         }
+    }
+    public String testPassword(){
+        return loginService.getPwdByUname("hansen");
     }
 
 }
