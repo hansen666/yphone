@@ -121,12 +121,12 @@ $('#register_submit').click(function () {
 	$.ajax({
 		url:"registerProcess",
 		type:"post",
-		dataType:text,
+		dataType:"text",
 		data:{
 			userName:userName,
-			phone:phone,
+			phone:phone.val(),
 			code:code,
-			password:password
+			password:password.val()
 		},
 		success:function(msg){
 			if(msg==1){

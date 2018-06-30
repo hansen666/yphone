@@ -7,10 +7,7 @@ import com.yphone.service.LoginService;
 import com.yphone.utils.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -60,6 +57,7 @@ public class MainController {
     public void  registerProcess(@ModelAttribute UserInfo userInfo,HttpServletRequest request, HttpServletResponse response)throws IOException{
         //TODO 用户注册
         //String code=request.getParameter("code");
+        String thisCode=(String)request.getSession().getAttribute("code");
         Writer writer=null;
         response.setCharacterEncoding("UTF-8");
         writer=response.getWriter();
@@ -68,7 +66,8 @@ public class MainController {
            writer.write(String.valueOf(checkResult));
        else if(checkResult==3)  //用户名已存在
            writer.write(String.valueOf(checkResult));
-       else if(!code.equals(request.getParameter("code")))  //验证码错误
+
+       else if(code==null||!request.getSession().getAttribute("code").equals(request.getParameter("code")))  //验证码错误
            writer.write("4");
 
        else{    //注册成功，把记录插入到表中
@@ -108,10 +107,12 @@ public class MainController {
         return "home";
     }
     @RequestMapping(value = "/sendCode",method = RequestMethod.POST)
-    public void sendCode(@RequestParam(value = "phone") HttpServletRequest request, HttpServletResponse response){
-        String phone=request.getParameter("phone");
+    public @ResponseBody String sendCode(@RequestParam(value = "phone") String phone, HttpServletRequest request, HttpServletResponse response){
+
         
         code=Message.getResult(phone);
+        request.getSession().setAttribute("code",code);
+        return phone;
 
        // return "sendCode";
     }
