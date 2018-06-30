@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -107,8 +108,11 @@ public class MainController {
         return "home";
     }
     @RequestMapping(value = "/sendCode",method = RequestMethod.POST)
-    public void sendCode(String phone){
+    public void sendCode(@RequestParam(value = "phone") HttpServletRequest request, HttpServletResponse response){
+        String phone=request.getParameter("phone");
+        
         code=Message.getResult(phone);
+
        // return "sendCode";
     }
 

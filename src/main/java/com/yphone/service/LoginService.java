@@ -16,10 +16,10 @@ public class LoginService {
 
     @Autowired AdminInfoMapper adminInfoMapper;
 
-    //数据库插入一个用户
-    public void saveUsesr(UserInfo user){
-        userInfoMapper.saveUser(user);
-    }
+//    //数据库插入一个用户
+//    public void saveUsesr(UserInfo user){
+//        userInfoMapper.saveUser(user);
+//    }
 
     //根据用户名查找密码
     public String getPwdByUname(String userName){
@@ -76,7 +76,7 @@ public class LoginService {
     public int register(String phone,String userName){
         if(userInfoMapper.isPhoneExist(phone)>0)
             return 2;  //2-号码已被注册
-        if(userInfoMapper.isUserNameExit(userName)>0)
+        if(userInfoMapper.isUserNameExist(userName)>0)
             return 3;  //3-用户名已存在
         return 1;
     }
