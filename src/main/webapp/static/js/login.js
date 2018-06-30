@@ -199,7 +199,6 @@ $('.getsms').click(function() {
 		case 3: error.html(msgtemp('<strong>手机号码错误</strong> 请输入正确的号码',  'alert-warning')); break;
 		case 0:
 			// 短信验证码的php请求
-			error.html(msgtemp('验证码 <strong>已发送</strong>','alert-success'));
 			$(this).rewire(60);
 			$.ajax(
 				{
@@ -211,14 +210,7 @@ $('.getsms').click(function() {
 						"phone":phone.val()
 					},
 					success:function(data){
-						if(data == ""){
-							alert("请输入手机号！");
-							// alert("验证码已经发送至" + data);
-						}
-						else{
 							alert("验证码已经发送至" + data);
-							//alert("请输入手机号！");
-						}
 					}
 				} );
 
