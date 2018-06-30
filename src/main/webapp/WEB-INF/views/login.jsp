@@ -21,11 +21,11 @@
 <div class="header">
     <div class="container">
         <a class="logo" href="index.html">
-            <img class="imgstyle" src="<%=request.getContextPath()%>/static/images/logo.png"  alt="E购网">
+            <img class="imgstyle" src="<%=request.getContextPath()%>/static/images/logo.png" alt="E购网">
         </a>
     </div>
 </div>
-<div style="margin-top: 10px; background: #fff url('<%=request.getContextPath()%>/static/images/background.jpg') no-repeat center center;background-size: 100% 100%;"  >
+<div style="margin-top: 10px; background: #fff url('<%=request.getContextPath()%>/static/images/background.jpg') no-repeat center center;background-size: 100% 100%;">
     <div class="public-layout container">
         <div class="form-box login">
             <div class="login-form">
@@ -50,7 +50,8 @@
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
                                 </div>
-                                <input class="form-control phone" name="phone" id="login_phone" required placeholder="用户名/手机号"  autocomplete="off" type="text">
+                                <input class="form-control phone" name="phone" id="login_phone" required
+                                       placeholder="用户名/手机号" autocomplete="off" type="text">
                             </div>
                         </div>
                         <div class="form-group">
@@ -58,7 +59,8 @@
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
                                 </div>
-                                <input class="form-control password" name="password" id="login_pwd" placeholder="请输入密码" autocomplete="off" type="password">
+                                <input class="form-control password" name="password" id="login_pwd" placeholder="请输入密码"
+                                       autocomplete="off" type="password">
                                 <!-- <div class="input-group-addon pwd-toggle" title="显示密码"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></div> -->
                             </div>
                         </div>
@@ -67,7 +69,10 @@
                             <a href="javascript:;" class="pull-right" id="resetpwd">忘记密码？</a>
                         </div>
 
-                        <button class="btn btn-large btn-primary btn-lg btn-block submit" id="login_submit"   type="button">登录</button><br>
+                        <button class="btn btn-large btn-primary btn-lg btn-block submit" id="login_submit"
+                                type="button">登录
+                        </button>
+                        <br>
                         <p class="text-center">没有账号？<a href="javascript:;" id="register">免费注册</a></p>
                     </form>
                 </div>
@@ -78,17 +83,19 @@
                 <h2>欢迎注册<a href="javascript:;" class="pull-right fz16" id="reglogin">返回登录</a></h2>
             </div>
             <div class="tabs_container">
-                <form class="tabs_form" action="index.html" method="post" id="register_form">
+                <form class="tabs_form" action=" " method="post" id="register_form">
                     <!-- 错误信息 -->
                     <div class="form-group">
                         <div class="error_msg" id="register_error"></div>
+
                     </div>
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                             </div>
-                            <input class="form-control username" name="username" id="register_username" required placeholder="用户名" maxlength="11" autocomplete="off" type="text">
+                            <input class="form-control username" name="username" id="register_username" required
+                                   placeholder="用户名" maxlength="11" autocomplete="off" type="text">
                         </div>
                     </div>
                     <div class="form-group">
@@ -96,12 +103,14 @@
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
                             </div>
-                            <input class="form-control phone" name="phone" id="register_phone" required placeholder="手机号" maxlength="11" autocomplete="off" type="text">
+                            <input class="form-control phone" name="phone" id="register_phone" required
+                                   placeholder="手机号" maxlength="11" autocomplete="off" type="text">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">
-                            <input class="form-control" name="smscode" id="register_sms" placeholder="输入验证码" type="text">
+                            <input class="form-control code" name="smscode" id="register_sms" placeholder="输入验证码"
+                                   type="text">
                             <span class="input-group-btn">
                                   <button class="btn btn-primary getsms" type="button">发送短信验证码</button>
                               </span>
@@ -112,7 +121,8 @@
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
                             </div>
-                            <input class="form-control password" name="password" id="register_pwd" placeholder="请输入密码" autocomplete="off" type="password">
+                            <input class="form-control password" name="password" id="register_pwd" placeholder="请输入密码"
+                                   autocomplete="off" type="password">
                             <!-- <div class="input-group-addon pwd-toggle" title="显示密码"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></div> -->
                         </div>
                     </div>
@@ -121,7 +131,8 @@
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
                             </div>
-                            <input class="form-control password1" name="password1" id="register_pwd1" placeholder="请确认密码" autocomplete="off" type="password">
+                            <input class="form-control password1" name="password1" id="register_pwd1"
+                                   placeholder="请确认密码" autocomplete="off" type="password">
                             <!-- <div class="input-group-addon pwd-toggle" title="显示密码"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></div> -->
                         </div>
                     </div>
@@ -131,7 +142,9 @@
                         </label>
                     </div>
 
-                    <button class="btn btn-large btn-primary btn-lg btn-block submit" id="register_submit" type="button">注册</button>
+                    <button class="btn btn-large btn-primary btn-lg btn-block submit" id="register_submit"
+                            type="button">注册
+                    </button>
                 </form>
 
             </div>
@@ -140,11 +153,21 @@
 </div>
 <div class="footer-login container clearfix">
     <ul class="links">
-        <a href=""><li>关于我们</li></a>
-        <a href=""><li>E购学堂</li></a>
-        <a href=""><li>联系我们</li></a>
-        <a href=""><li>企业简介</li></a>
-        <a href=""><li>新手上路</li></a>
+        <a href="">
+            <li>关于我们</li>
+        </a>
+        <a href="">
+            <li>E购学堂</li>
+        </a>
+        <a href="">
+            <li>联系我们</li>
+        </a>
+        <a href="">
+            <li>企业简介</li>
+        </a>
+        <a href="">
+            <li>新手上路</li>
+        </a>
     </ul>
     <!-- 版权 -->
     <p class="copyright">
@@ -152,11 +175,34 @@
     </p>
 </div>
 
-
 <script src="<%=request.getContextPath()%>/static/js/jquery.1.12.4.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/bootstrap.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/global.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/login.js"></script>
+<script>
+    $(document).ready(function () {
+        var p = '<%=request.getAttribute("p")%>';
+        console.log("hansen" + p);
+        switch (p) {
+            case 'register':
+                $('.register').show();
+                break;
+            default:
+                $('.login').show();
+        }
+        $('#register').click(function () {
+            $('.login').fadeOut(150, function () {
+                $('.register').fadeIn(150)
+            })
+        });
+        $('#reglogin').click(function () {
+            $('.register').fadeOut(150, function () {
+                $('.login').fadeIn(150)
+            })
+        });
+
+    })
+</script>
 
 </body>
 </html>

@@ -1,12 +1,13 @@
 package com.yphone.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.yphone.mappers.UserInfoMapper;
 import com.yphone.model.nochange.UserInfo;
 import com.yphone.service.LoginService;
+import com.yphone.utils.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,12 +19,18 @@ import java.io.Writer;
  * Created by chenhansen on 2018/5/21.
  */
 @Controller
+
 @RequestMapping("/")
 
 public class MainController {
 
     @Autowired
     private LoginService loginService;
+
+    @Autowired
+    private UserInfoMapper userInfoMapper;
+
+    private String code;
 
 
 
@@ -33,31 +40,50 @@ public class MainController {
         //TODO 用户登录，返回数字用字符串形式，如“1”；
 
 
-//        String username=request.getParameter("userID");
-//        String password=request.getParameter("password");
-//        Writer writer=null;
-//        response.setCharacterEncoding("UTF-8");
-//        writer=response.getWriter();
-//
-//        if(username.equals("hansen")&&password.equals("123456"))
-//            writer.write("1");
-//        else if(username.equals("admin")&&password.equals("123"))
-//        writer.write("4");
-//        else writer.write("2");
-//
-//        if(writer!=null){
-//            writer.flush();
-//            writer.close();
-//        }
+        String username=request.getParameter("userID");
+        String password=request.getParameter("password");
+        int result=loginService.loginResult(username,password);
+        Writer writer=null;
+        response.setCharacterEncoding("UTF-8");
+        writer=response.getWriter();
+        writer.write(String.valueOf(result));
+        if(writer!=null){
+            writer.flush();
+            writer.close();
+        }
     }
 
     @RequestMapping(value = "/registerProcess",method = RequestMethod.POST)
-    public String registerProcess(){
+    public void  registerProcess(@ModelAttribute UserInfo userInfo,HttpServletRequest request, HttpServletResponse response)throws IOException{
         //TODO 用户注册
+        //String code=request.getParameter("code");
+        String thisCode=(String)request.getSession().getAttribute("code");
+        Writer writer=null;
+        response.setCharacterEncoding("UTF-8");
+        writer=response.getWriter();
+       int checkResult=loginService.register(userInfo.getPhone(),userInfo.getUserName());
+       if(checkResult==2)    //号码已被注册
+           writer.write(String.valueOf(checkResult));
+       else if(checkResult==3)  //用户名已存在
+           writer.write(String.valueOf(checkResult));
 
-        
-        return "success";
+       else if(code==null||!request.getSession().getAttribute("code").equals(request.getParameter("code")))  //验证码错误
+           writer.write("4");
+
+       else{    //注册成功，把记录插入到表中
+           userInfoMapper.insert(userInfo);
+           writer.write("1");
+       }
+
+        if(writer!=null){
+            writer.flush();
+            writer.close();
+        }
+
+       // return "success";
     }
+
+
 
 
 
@@ -80,11 +106,21 @@ public class MainController {
 
         return "home";
     }
+    @RequestMapping(value = "/sendCode",method = RequestMethod.POST)
+    public @ResponseBody String sendCode(@RequestParam(value = "phone") String phone, HttpServletRequest request, HttpServletResponse response){
+
+        
+        code=Message.getResult(phone);
+        request.getSession().setAttribute("code",code);
+        return phone;
+
+       // return "sendCode";
+    }
 
 
     @RequestMapping(value = "/register",method = RequestMethod.GET)
     public ModelAndView register(){
-        ModelAndView model=new ModelAndView("register");
+        ModelAndView model=new ModelAndView("login");
         model.addObject("p","register");
         return model;
     }
@@ -104,6 +140,9 @@ public class MainController {
                 writer.close();
             }
         }
+    }
+    public String testPassword(){
+        return loginService.getPwdByUname("hansen");
     }
 
 }
