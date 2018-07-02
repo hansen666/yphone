@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.Writer;
 
@@ -47,6 +48,12 @@ public class MainController {
         response.setCharacterEncoding("UTF-8");
         writer=response.getWriter();
         writer.write(String.valueOf(result));
+        if(1==result){
+            //创建一个session对象保存信息
+            HttpSession session=request.getSession();
+            session.setAttribute("useName",username);
+            session.setAttribute("password",password);
+        }
         if(writer!=null){
             writer.flush();
             writer.close();
@@ -72,6 +79,7 @@ public class MainController {
 
        else{    //注册成功，把记录插入到表中
            userInfoMapper.insert(userInfo);
+
            writer.write("1");
        }
 
@@ -125,7 +133,7 @@ public class MainController {
         return model;
     }
 
-    public void jsonToResponse(JSONObject json, HttpServletResponse response)throws IOException{
+    public static void jsonToResponse(JSONObject json, HttpServletResponse response)throws IOException{
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json; charset=utf-8");
         Writer writer = null;
