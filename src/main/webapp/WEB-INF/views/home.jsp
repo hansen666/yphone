@@ -225,117 +225,9 @@
             </div>
             <div class="b">
                 <div class="goods-list">
-                    <ul class="grid-list clearfix">
-                        <li class="grid-items">
-                            <div class="figure figure-img">
-                                <a class="exposure">
-                                    <img src="<%=request.getContextPath()%>/static/images/lunbo1.jpg" width="160" height="160" alt="">
-                                </a>
-                            </div>
-                            <h3 class="title">红米6A</h3>
-                            <p class="desc">AI人脸解锁，小巧全面屏，高性能处理</p>
-                            <p class="price"> 599元</p>
-                        </li>
-                        <li class="grid-items">
-                            <div class="figure figure-img">
-                                <a class="exposure">
-                                    <img src="<%=request.getContextPath()%>/static/images/lunbo1.jpg" width="160" height="160" alt="">
-                                </a>
-                            </div>
-                            <h3 class="title">红米6A</h3>
-                            <p class="desc">AI人脸解锁，小巧全面屏，高性能处理</p>
-                            <p class="price"> 599元</p>
-                        </li>
-                        <li class="grid-items">
-                            <div class="figure figure-img">
-                                <a class="exposure">
-                                    <img src="<%=request.getContextPath()%>/static/images/lunbo1.jpg" width="160" height="160" alt="">
-                                </a>
-                            </div>
-                            <h3 class="title">红米6A</h3>
-                            <p class="desc">AI人脸解锁，小巧全面屏，高性能处理</p>
-                            <p class="price"> 599元</p>
-                        </li>
-                        <li class="grid-items">
-                            <div class="figure figure-img">
-                                <a class="exposure">
-                                    <img src="<%=request.getContextPath()%>/static/images/lunbo1.jpg" width="160" height="160" alt="">
-                                </a>
-                            </div>
-                            <h3 class="title">红米6A</h3>
-                            <p class="desc">AI人脸解锁，小巧全面屏，高性能处理</p>
-                            <p class="price"> 599元</p>
-                        </li>
-                        <li class="grid-items">
-                            <div class="figure figure-img">
-                                <a class="exposure">
-                                    <img src="<%=request.getContextPath()%>/static/images/lunbo1.jpg" width="160" height="160" alt="">
-                                </a>
-                            </div>
-                            <h3 class="title">红米6A</h3>
-                            <p class="desc">AI人脸解锁，小巧全面屏，高性能处理</p>
-                            <p class="price"> 599元</p>
-                        </li>
-                        <li class="grid-items">
-                            <div class="figure figure-img">
-                                <a class="exposure">
-                                    <img src="<%=request.getContextPath()%>/static/images/lunbo1.jpg" width="160" height="160" alt="">
-                                </a>
-                            </div>
-                            <h3 class="title">红米6A</h3>
-                            <p class="desc">AI人脸解锁，小巧全面屏，高性能处理</p>
-                            <p class="price"> 599元</p>
-                        </li>
-                        <li class="grid-items">
-                            <div class="figure figure-img">
-                                <a class="exposure">
-                                    <img src="<%=request.getContextPath()%>/static/images/lunbo1.jpg" width="160" height="160" alt="">
-                                </a>
-                            </div>
-                            <h3 class="title">红米6A</h3>
-                            <p class="desc">AI人脸解锁，小巧全面屏，高性能处理</p>
-                            <p class="price"> 599元</p>
-                        </li>
-                        <li class="grid-items">
-                            <div class="figure figure-img">
-                                <a class="exposure">
-                                    <img src="<%=request.getContextPath()%>/static/images/lunbo1.jpg" width="160" height="160" alt="">
-                                </a>
-                            </div>
-                            <h3 class="title">红米6A</h3>
-                            <p class="desc">AI人脸解锁，小巧全面屏，高性能处理</p>
-                            <p class="price"> 599元</p>
-                        </li>
-                        <li class="grid-items">
-                            <div class="figure figure-img">
-                                <a class="exposure">
-                                    <img src="<%=request.getContextPath()%>/static/images/lunbo1.jpg" width="160" height="160" alt="">
-                                </a>
-                            </div>
-                            <h3 class="title">红米6A</h3>
-                            <p class="desc">AI人脸解锁，小巧全面屏，高性能处理</p>
-                            <p class="price"> 599元</p>
-                        </li>
-                        <li class="grid-items">
-                            <div class="figure figure-img">
-                                <a class="exposure">
-                                    <img src="<%=request.getContextPath()%>/static/images/lunbo1.jpg" width="160" height="160" alt="">
-                                </a>
-                            </div>
-                            <h3 class="title">红米6A</h3>
-                            <p class="desc">AI人脸解锁，小巧全面屏，高性能处理</p>
-                            <p class="price"> 599元</p>
-                        </li>
-                        <li class="grid-items">
-                            <div class="figure figure-img">
-                                <a class="exposure">
-                                    <img src="<%=request.getContextPath()%>/static/images/lunbo1.jpg" width="160" height="160" alt="">
-                                </a>
-                            </div>
-                            <h3 class="title">红米6A</h3>
-                            <p class="desc">AI人脸解锁，小巧全面屏，高性能处理</p>
-                            <p class="price"> 599元</p>
-                        </li>
+                    <ul class="grid-list clearfix" id="huawei">
+
+
                     </ul>
                 </div>
             </div>
@@ -344,7 +236,14 @@
             <div class="h">
                 <h2 class="title">小米</h2>
             </div>
-            <div class="b"></div>
+            <div class="b">
+                <div class="goods-list">
+                    <ul class="grid-list xiaomi clearfix" id="xiaomi">
+
+
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 

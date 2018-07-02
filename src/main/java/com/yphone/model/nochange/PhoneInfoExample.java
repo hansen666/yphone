@@ -536,52 +536,52 @@ public class PhoneInfoExample extends BaseExample {
             return (Criteria) this;
         }
 
-        public Criteria andCapacityEqualTo(Integer value) {
+        public Criteria andCapacityEqualTo(Short value) {
             addCriterion("capacity =", value, "capacity");
             return (Criteria) this;
         }
 
-        public Criteria andCapacityNotEqualTo(Integer value) {
+        public Criteria andCapacityNotEqualTo(Short value) {
             addCriterion("capacity <>", value, "capacity");
             return (Criteria) this;
         }
 
-        public Criteria andCapacityGreaterThan(Integer value) {
+        public Criteria andCapacityGreaterThan(Short value) {
             addCriterion("capacity >", value, "capacity");
             return (Criteria) this;
         }
 
-        public Criteria andCapacityGreaterThanOrEqualTo(Integer value) {
+        public Criteria andCapacityGreaterThanOrEqualTo(Short value) {
             addCriterion("capacity >=", value, "capacity");
             return (Criteria) this;
         }
 
-        public Criteria andCapacityLessThan(Integer value) {
+        public Criteria andCapacityLessThan(Short value) {
             addCriterion("capacity <", value, "capacity");
             return (Criteria) this;
         }
 
-        public Criteria andCapacityLessThanOrEqualTo(Integer value) {
+        public Criteria andCapacityLessThanOrEqualTo(Short value) {
             addCriterion("capacity <=", value, "capacity");
             return (Criteria) this;
         }
 
-        public Criteria andCapacityIn(List<Integer> values) {
+        public Criteria andCapacityIn(List<Short> values) {
             addCriterion("capacity in", values, "capacity");
             return (Criteria) this;
         }
 
-        public Criteria andCapacityNotIn(List<Integer> values) {
+        public Criteria andCapacityNotIn(List<Short> values) {
             addCriterion("capacity not in", values, "capacity");
             return (Criteria) this;
         }
 
-        public Criteria andCapacityBetween(Integer value1, Integer value2) {
+        public Criteria andCapacityBetween(Short value1, Short value2) {
             addCriterion("capacity between", value1, value2, "capacity");
             return (Criteria) this;
         }
 
-        public Criteria andCapacityNotBetween(Integer value1, Integer value2) {
+        public Criteria andCapacityNotBetween(Short value1, Short value2) {
             addCriterion("capacity not between", value1, value2, "capacity");
             return (Criteria) this;
         }
@@ -656,52 +656,52 @@ public class PhoneInfoExample extends BaseExample {
             return (Criteria) this;
         }
 
-        public Criteria andSizeEqualTo(Long value) {
+        public Criteria andSizeEqualTo(BigDecimal value) {
             addCriterion("size =", value, "size");
             return (Criteria) this;
         }
 
-        public Criteria andSizeNotEqualTo(Long value) {
+        public Criteria andSizeNotEqualTo(BigDecimal value) {
             addCriterion("size <>", value, "size");
             return (Criteria) this;
         }
 
-        public Criteria andSizeGreaterThan(Long value) {
+        public Criteria andSizeGreaterThan(BigDecimal value) {
             addCriterion("size >", value, "size");
             return (Criteria) this;
         }
 
-        public Criteria andSizeGreaterThanOrEqualTo(Long value) {
+        public Criteria andSizeGreaterThanOrEqualTo(BigDecimal value) {
             addCriterion("size >=", value, "size");
             return (Criteria) this;
         }
 
-        public Criteria andSizeLessThan(Long value) {
+        public Criteria andSizeLessThan(BigDecimal value) {
             addCriterion("size <", value, "size");
             return (Criteria) this;
         }
 
-        public Criteria andSizeLessThanOrEqualTo(Long value) {
+        public Criteria andSizeLessThanOrEqualTo(BigDecimal value) {
             addCriterion("size <=", value, "size");
             return (Criteria) this;
         }
 
-        public Criteria andSizeIn(List<Long> values) {
+        public Criteria andSizeIn(List<BigDecimal> values) {
             addCriterion("size in", values, "size");
             return (Criteria) this;
         }
 
-        public Criteria andSizeNotIn(List<Long> values) {
+        public Criteria andSizeNotIn(List<BigDecimal> values) {
             addCriterion("size not in", values, "size");
             return (Criteria) this;
         }
 
-        public Criteria andSizeBetween(Long value1, Long value2) {
+        public Criteria andSizeBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("size between", value1, value2, "size");
             return (Criteria) this;
         }
 
-        public Criteria andSizeNotBetween(Long value1, Long value2) {
+        public Criteria andSizeNotBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("size not between", value1, value2, "size");
             return (Criteria) this;
         }
@@ -1133,6 +1133,76 @@ public class PhoneInfoExample extends BaseExample {
 
         public Criteria andSalesNotBetween(Integer value1, Integer value2) {
             addCriterion("sales not between", value1, value2, "sales");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrlIsNull() {
+            addCriterion("url is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrlIsNotNull() {
+            addCriterion("url is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrlEqualTo(String value) {
+            addCriterion("url =", value, "url");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrlNotEqualTo(String value) {
+            addCriterion("url <>", value, "url");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrlGreaterThan(String value) {
+            addCriterion("url >", value, "url");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("url >=", value, "url");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrlLessThan(String value) {
+            addCriterion("url <", value, "url");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrlLessThanOrEqualTo(String value) {
+            addCriterion("url <=", value, "url");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrlLike(String value) {
+            addCriterion("url like", value, "url");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrlNotLike(String value) {
+            addCriterion("url not like", value, "url");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrlIn(List<String> values) {
+            addCriterion("url in", values, "url");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrlNotIn(List<String> values) {
+            addCriterion("url not in", values, "url");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrlBetween(String value1, String value2) {
+            addCriterion("url between", value1, value2, "url");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrlNotBetween(String value1, String value2) {
+            addCriterion("url not between", value1, value2, "url");
             return (Criteria) this;
         }
     }

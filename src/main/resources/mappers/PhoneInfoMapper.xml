@@ -11,6 +11,7 @@
         <result column="price" jdbcType="DECIMAL" property="price" />
         <result column="capacity" jdbcType="TINYINT" property="capacity" />
         <result column="RAM" jdbcType="TINYINT" property="ram" />
+        <result column="url" jdbcType="VARCHAR" property="url" />
     </resultMap>
     <select id="getType" resultType="java.lang.String">
         select type from phone_info GROUP BY type
@@ -24,7 +25,7 @@
     </select>
 
     <select id="selectByType" resultMap="partResultMap" parameterType="java.lang.String">
-        SELECT phone_id,name,price,capacity,RAM from phone_info where type=#{type}
+        SELECT phone_id,name,price,capacity,RAM,description,url from phone_info where type=#{type}
     </select>
 
     <select id="selectByMinID" resultType="com.yphone.model.nochange.PhoneInfo">

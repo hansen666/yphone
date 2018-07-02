@@ -8,13 +8,23 @@
         type: "get",
         dataType: "JSON",
         success: function (msg) {
-            console.log(msg)
-
-            for(i in msg) {
-                console.log(msg[i]);
-                for(j in msg[i])
-                    console.log(msg[i][j]);
+            var htm="";
+            var huawei_lists=$('#huawei');
+            for (j in msg['华为']) {
+                var phone_detail = msg['华为'][j];
+                htm += getPhoneInfo(phone_detail);
             }
+            huawei_lists.html(htm);
+            console.log(msg['华为']);
+
+            var xiaomi_lists=$('#xiaomi');
+            htm="";
+            for (j in msg['小米']) {
+                var phone_detail = msg['小米'][j];
+                htm += getPhoneInfo(phone_detail);
+            }
+            xiaomi_lists.html(htm);
+            //console.log(htm)
         }
 
     })
@@ -24,22 +34,13 @@
 
         return '<li class="grid-items">'+
         '<div class="figure figure-img">'+
-            '<a class="exposure">'+
-            '<img src="<%=request.getContextPath()%>/static/images/lunbo1.jpg" width="160" height="160" alt="">'+
+            '<a class="exposure" href="phone_detail?pid='+phone.phoneId+'">'+
+            '<img src="/yphone'+phone.url+'" width="160" height="160" alt="">'+
             '</a>'+
             '</div>'+
-            '<h3 class="title">红米6A</h3>'+
-            '<p class="desc">AI人脸解锁，小巧全面屏，高性能处理</p>'+
-        '<p class="price"> 599元</p>'+
+            '<h3 class="title">'+phone.name+'</h3>'+
+            '<p class="desc">'+phone.description+'</p>'+
+        '<p class="price">'+phone.price+ '元</p>'+
         '</li>';
     }
 
-    function appendTypeChild(parent,msg){
-        var lists=$('.grid-list');
-        var htm="";
-        for(i in msg){
-            obj=JSON.parse(data[i]);
-
-        }
-
-    }
