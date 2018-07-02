@@ -352,6 +352,7 @@
 
 <script src="<%=request.getContextPath()%>/static/js/jquery-3.1.1.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/home.js"></script>
 <script>
     $(document).ready(function () {
         var p = '<%=request.getAttribute("username")%>';
