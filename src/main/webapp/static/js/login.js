@@ -6,6 +6,8 @@ function msgtemp(msg,className) {
 };
 
 
+
+
 (function($){
 	$.fn.extend({
 		/* 重置验证码发送按钮 */

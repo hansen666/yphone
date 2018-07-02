@@ -1,5 +1,6 @@
 package com.yphone.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.yphone.mappers.UserInfoMapper;
 import com.yphone.model.nochange.UserInfo;
@@ -14,6 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by chenhansen on 2018/5/21.
@@ -31,6 +35,7 @@ public class MainController {
     private UserInfoMapper userInfoMapper;
 
     private String code;
+
 
 
 
@@ -90,8 +95,9 @@ public class MainController {
 
 
     @RequestMapping(value = "/login",method = RequestMethod.GET)
-    public String login(){
-
+    public String login(HttpServletRequest request){
+        String s=request.getParameter("userName");
+        System.out.println(s);
         return "login";
     }
 

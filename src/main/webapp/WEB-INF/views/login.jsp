@@ -200,8 +200,9 @@
                 $('.login').fadeIn(150)
             })
         });
-
+        getPhoneList();
     })
+
 </script>
 
 </body>

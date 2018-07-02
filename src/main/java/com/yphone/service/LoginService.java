@@ -5,6 +5,8 @@ import com.yphone.model.nochange.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by chenhansen on 2018/5/21.
  */
@@ -80,5 +82,7 @@ public class LoginService {
             return 3;  //3-用户名已存在
         return 1;
     }
+
+
 
 }
