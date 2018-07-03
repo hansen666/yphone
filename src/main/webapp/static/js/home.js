@@ -56,7 +56,7 @@
     })
     }
     function setLiInfo(phone) {
-        return '<li><a class="link" href="phone_detail?pid='+phone.phoneId+'"><span class="text">'+phone.name+'</span></a></li>'
+        return '<li><a class="link" href="phoneDetail?pid='+phone.phoneId+'"><span class="text">'+phone.name+'</span></a></li>'
     }
     function setPhoneNameInfo(name){
         var htm='<ul class="children-list children-list-col children-list-col-1">'

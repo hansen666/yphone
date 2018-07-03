@@ -178,6 +178,7 @@ $('#login_submit').click(function() {
 				password: password
 			},
 			success: function (msg) {
+
 				if(msg==1)
 					parent.document.location.href = "home";
 				if(msg==2)

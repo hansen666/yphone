@@ -119,6 +119,7 @@ public class MainController {
         request.getSession().setAttribute("userName","");
         return "home";
     }
+    
 
     @RequestMapping(value = "/home",method = RequestMethod.GET)
     public String home(){
