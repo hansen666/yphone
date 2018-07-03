@@ -56,8 +56,7 @@ public class MainController {
         if(1==result){
             //创建一个session对象保存信息
             HttpSession session=request.getSession();
-            session.setAttribute("useName",username);
-            session.setAttribute("password",password);
+            session.setAttribute("userName",username);
         }
         if(writer!=null){
             writer.flush();
@@ -113,6 +112,12 @@ public class MainController {
     public String admin(){
 
         return "admin";
+    }
+
+    @RequestMapping(value = "/quitLogin",method = RequestMethod.GET)
+    public String quit(HttpServletRequest request){
+        request.getSession().setAttribute("userName","");
+        return "home";
     }
 
     @RequestMapping(value = "/home",method = RequestMethod.GET)

@@ -34,12 +34,12 @@
         </div>
         <div class="topbar-info">
             <div class="" id="login-register">
-                <a class="link" href="login?uaername=hansen" >登录</a>
+                <a class="link" href="login" >登录</a>
                 <a class="link" href="register">注册</a>
             </div>
 
-            <div class="dropdown user-item" id="user-item">
-                <a href="" class="dropdown-toggle" data-toggle="dropdown">${userName}</a>
+            <div class="dropdown" id="user-item">
+                <a  class="dropdown-toggle user-item" data-toggle="dropdown"><%=request.getSession().getAttribute("userName")%></a>
                 <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -47,7 +47,7 @@
                         <a role="menuitem" tabindex="-1" href="#">个人中心</a>
                     </li>
                     <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">退出登录</a>
+                        <a role="menuitem" tabindex="-1" href="quitLogin">退出登录</a>
                     </li>
 
                 </ul>
@@ -85,46 +85,17 @@
                         <a class="title">华为
                             <span class="glyphicon glyphicon-chevron-right chevron"></span>
                         </a>
-                        <div class="children clearfix children-col-2">
-                            <ul class="children-list children-list-col children-list-col-1">
-                                <li><a class="link" href="#"><span class="text">小米8</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米7</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米6</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米5</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米4</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米3</span></a></li>
-                            </ul>
-                            <ul class="children-list children-list-col children-list-col-2">
-                                <li><a class="link" href="#"><span class="text">小米8</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米7</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米6</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米5</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米4</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米3</span></a></li>
-                            </ul>
+                        <div class="children clearfix children-col-2" id="huaweiList">
+
                         </div>
                     </li>
                     <li class="category-item">
                         <a class="title">小米
                             <span class="glyphicon glyphicon-chevron-right chevron"></span>
                         </a>
-                        <div class="children clearfix children-col-2">
-                            <ul class="children-list children-list-col children-list-col-1">
-                                <li><a class="link" href="#"><span class="text">小米8</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米7</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米6</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米5</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米4</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米3</span></a></li>
-                            </ul>
-                            <ul class="children-list children-list-col children-list-col-2">
-                                <li><a class="link" href="#"><span class="text">小米8</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米7</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米6</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米5</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米4</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米3</span></a></li>
-                            </ul>
+                        <div class="children clearfix children-col-2" id="xiaomiList">
+
+
                         </div>
 
                     </li>
@@ -133,22 +104,7 @@
                             <span class="glyphicon glyphicon-chevron-right chevron"></span>
                         </a>
                         <div class="children clearfix children-col-2">
-                            <ul class="children-list children-list-col children-list-col-1">
-                                <li><a class="link" href="#"><span class="text">小米8</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米7</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米6</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米5</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米4</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米3</span></a></li>
-                            </ul>
-                            <ul class="children-list children-list-col children-list-col-2">
-                                <li><a class="link" href="#"><span class="text">小米8</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米7</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米6</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米5</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米4</span></a></li>
-                                <li><a class="link" href="#"><span class="text">小米3</span></a></li>
-                            </ul>
+
                         </div>
                     </li>
                     <li class="category-item">
@@ -254,14 +210,13 @@
 <script src="<%=request.getContextPath()%>/static/js/home.js"></script>
 <script>
     $(document).ready(function () {
-        var p = '<%=request.getAttribute("username")%>';
-        console.log("hansen" + p);
-        if(p=="null") {
+        var p = '<%=request.getSession().getAttribute("userName")%>';
+        if(p=="null"||p=="") {
             $('#login-register').show();
         }
         else {
             $('#user-item').show();
-        }
+    }
 
         getPhoneList();
     })

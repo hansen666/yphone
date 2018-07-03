@@ -55,13 +55,16 @@
     line-height: 40px;
     color:#b0b0b0;
 }
-.topbar-info .login-register,.user-item{
+.topbar-info #login-register,#user-item{
     display: none;
 
 }
 .topbar-info .link,.user-item{
     text-decoration: none;
     color: #b0b0b0;
+}
+
+.topbar-info .link,#user-item span{
     margin-right: 30px;
 }
 /* .topbar-info .user-item{
@@ -181,19 +184,20 @@
     padding-left:5px;
     font-size: 15px;
 }
-.children-col-1{
-    width: 250px;
-}
-.children-col-2{
-    width: 500px;
-}
-.children-col-3{
-    width: 750px;
-}
-.children-col-4{
-    width: 1000px;
-}
+/*.children-col-1{*/
+    /*width: 250px;*/
+/*}*/
+/*.children-col-2{*/
+    /*width: 500px;*/
+/*}*/
+/*.children-col-3{*/
+    /*width: 750px;*/
+/*}*/
+/*.children-col-4{*/
+    /*width: 1000px;*/
+/*}*/
 .site-category-list .children{
+    width: 600px;
     display: none;
     position: absolute;
     margin-top:-0.1px;
@@ -206,7 +210,7 @@
     background: #fff;
 }
 .site-category-list .children-list{
-    width: 750px;
+    width: 900px;
     float: left;
     height:90px;
     margin:0;
