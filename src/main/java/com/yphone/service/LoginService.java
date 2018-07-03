@@ -42,7 +42,13 @@ public class LoginService {
         return adminInfoMapper.isAdminExist(adminName)>0?true:false;
     }
 
-    //public boolean is
+    public String getNameByPhone(String phone){
+        return userInfoMapper.getNameByPhone(phone);
+    }
+    public String getPhoneByName(String name){
+        return userInfoMapper.getPhoneByName(name);
+    }
+
 
     public int loginResult(String account,String password){
         if(!isPhone(account)){  //检测到如果不是用手机号登录

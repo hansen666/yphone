@@ -14,6 +14,8 @@ public interface UserInfoMapper extends MBGUserInfoMapper {
 
     String getPwdByUname(@Param("userName") String userName);
     String getPwdByPhone(@Param("phone") String phone);
+    String getPhoneByName(String useName);
+    String getNameByPhone(String phone);
     int isPhoneExist(String phone);
     int isUserNameExist(String userName);
 
