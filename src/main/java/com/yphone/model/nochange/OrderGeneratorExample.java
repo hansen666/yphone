@@ -255,73 +255,73 @@ public class OrderGeneratorExample extends BaseExample {
             return (Criteria) this;
         }
 
-        public Criteria andPhoneLast3IsNull() {
-            addCriterion("phone_last3 is null");
+        public Criteria andPhoneLast4IsNull() {
+            addCriterion("phone_last4 is null");
             return (Criteria) this;
         }
 
-        public Criteria andPhoneLast3IsNotNull() {
-            addCriterion("phone_last3 is not null");
+        public Criteria andPhoneLast4IsNotNull() {
+            addCriterion("phone_last4 is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPhoneLast3EqualTo(String value) {
-            addCriterion("phone_last3 =", value, "phoneLast3");
+        public Criteria andPhoneLast4EqualTo(String value) {
+            addCriterion("phone_last4 =", value, "phoneLast4");
             return (Criteria) this;
         }
 
-        public Criteria andPhoneLast3NotEqualTo(String value) {
-            addCriterion("phone_last3 <>", value, "phoneLast3");
+        public Criteria andPhoneLast4NotEqualTo(String value) {
+            addCriterion("phone_last4 <>", value, "phoneLast4");
             return (Criteria) this;
         }
 
-        public Criteria andPhoneLast3GreaterThan(String value) {
-            addCriterion("phone_last3 >", value, "phoneLast3");
+        public Criteria andPhoneLast4GreaterThan(String value) {
+            addCriterion("phone_last4 >", value, "phoneLast4");
             return (Criteria) this;
         }
 
-        public Criteria andPhoneLast3GreaterThanOrEqualTo(String value) {
-            addCriterion("phone_last3 >=", value, "phoneLast3");
+        public Criteria andPhoneLast4GreaterThanOrEqualTo(String value) {
+            addCriterion("phone_last4 >=", value, "phoneLast4");
             return (Criteria) this;
         }
 
-        public Criteria andPhoneLast3LessThan(String value) {
-            addCriterion("phone_last3 <", value, "phoneLast3");
+        public Criteria andPhoneLast4LessThan(String value) {
+            addCriterion("phone_last4 <", value, "phoneLast4");
             return (Criteria) this;
         }
 
-        public Criteria andPhoneLast3LessThanOrEqualTo(String value) {
-            addCriterion("phone_last3 <=", value, "phoneLast3");
+        public Criteria andPhoneLast4LessThanOrEqualTo(String value) {
+            addCriterion("phone_last4 <=", value, "phoneLast4");
             return (Criteria) this;
         }
 
-        public Criteria andPhoneLast3Like(String value) {
-            addCriterion("phone_last3 like", value, "phoneLast3");
+        public Criteria andPhoneLast4Like(String value) {
+            addCriterion("phone_last4 like", value, "phoneLast4");
             return (Criteria) this;
         }
 
-        public Criteria andPhoneLast3NotLike(String value) {
-            addCriterion("phone_last3 not like", value, "phoneLast3");
+        public Criteria andPhoneLast4NotLike(String value) {
+            addCriterion("phone_last4 not like", value, "phoneLast4");
             return (Criteria) this;
         }
 
-        public Criteria andPhoneLast3In(List<String> values) {
-            addCriterion("phone_last3 in", values, "phoneLast3");
+        public Criteria andPhoneLast4In(List<String> values) {
+            addCriterion("phone_last4 in", values, "phoneLast4");
             return (Criteria) this;
         }
 
-        public Criteria andPhoneLast3NotIn(List<String> values) {
-            addCriterion("phone_last3 not in", values, "phoneLast3");
+        public Criteria andPhoneLast4NotIn(List<String> values) {
+            addCriterion("phone_last4 not in", values, "phoneLast4");
             return (Criteria) this;
         }
 
-        public Criteria andPhoneLast3Between(String value1, String value2) {
-            addCriterion("phone_last3 between", value1, value2, "phoneLast3");
+        public Criteria andPhoneLast4Between(String value1, String value2) {
+            addCriterion("phone_last4 between", value1, value2, "phoneLast4");
             return (Criteria) this;
         }
 
-        public Criteria andPhoneLast3NotBetween(String value1, String value2) {
-            addCriterion("phone_last3 not between", value1, value2, "phoneLast3");
+        public Criteria andPhoneLast4NotBetween(String value1, String value2) {
+            addCriterion("phone_last4 not between", value1, value2, "phoneLast4");
             return (Criteria) this;
         }
 

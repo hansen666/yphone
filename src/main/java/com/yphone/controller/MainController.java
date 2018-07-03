@@ -49,6 +49,15 @@ public class MainController {
         String username=request.getParameter("userID");
         String password=request.getParameter("password");
         int result=loginService.loginResult(username,password);
+        String phone;
+        if(username.matches("[0-9]{11}")) {
+            phone = new String(username);
+            username=userInfoMapper.getNameByPhone(phone);
+        }
+        else{
+            phone=userInfoMapper.getPhoneByName(username);
+        }
+
         Writer writer=null;
         response.setCharacterEncoding("UTF-8");
         writer=response.getWriter();
@@ -57,6 +66,8 @@ public class MainController {
             //创建一个session对象保存信息
             HttpSession session=request.getSession();
             session.setAttribute("userName",username);
+            session.setAttribute("phone",phone);
+
         }
         if(writer!=null){
             writer.flush();

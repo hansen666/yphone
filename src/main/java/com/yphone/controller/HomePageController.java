@@ -34,13 +34,13 @@ public class HomePageController {
            }
     }
 
-    //返回一个phone
+    //返回一个phone_info
     @RequestMapping(value="/phoneDetail",method =RequestMethod.GET)
     public ModelAndView phoneDetail(HttpServletRequest request){
         ModelAndView model=new ModelAndView("phoneDetail");
-        String phoneID=request.getParameter("phoneID");
-        PhoneInfo phone=homeService.getPhoneByID(Long.valueOf(phoneID));
-        model.addObject("phone",phone);
+        String phoneID=request.getParameter("pid");
+        PhoneInfo phone_info=homeService.getPhoneByID(Long.valueOf(phoneID));
+        model.addObject("phone_info",phone_info);
         return model;
     }
 
