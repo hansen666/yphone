@@ -65,5 +65,17 @@ public class HomePageController {
 
 
 
+    @RequestMapping(value = "/purchase",method = RequestMethod.GET)
+    public ModelAndView purchase(HttpServletRequest request){
+        if(request.getSession().getAttribute("userName")==""||request.getSession().getAttribute("userName")==null){
+            ModelAndView model=new ModelAndView("login");
+            String url=String.valueOf(request.getRequestURL());
+            model.addObject("backurl",url);
+            return model;
+        }else
+            return new ModelAndView("confirm_order");
+    }
+
+
 
 }

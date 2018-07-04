@@ -159,6 +159,10 @@ $('#login_submit').click(function() {
 	var userID = form.find('input.phone').val();
 	var password = form.find('input.password').val();
 	var error = form.find('.error_msg');
+	var backurl=form.find('input.backurl').val();
+	alert(backurl);
+	if(backurl==""||backurl==null)
+		backurl="home";
 
 
 
@@ -179,8 +183,9 @@ $('#login_submit').click(function() {
 			},
 			success: function (msg) {
 
-				if(msg==1)
-					parent.document.location.href = "home";
+				if(msg==1) {
+					parent.document.location.href = backurl;
+				}
 				if(msg==2)
 					error.html(msgtemp('<strong>账户与密码不匹配，请重新输入</strong> ',    'alert-warning'));
 				if(msg==3)
