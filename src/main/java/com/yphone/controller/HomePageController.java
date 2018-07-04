@@ -48,20 +48,6 @@ public class HomePageController {
         return model;
     }
 
-    //点击购买商品函数
-    @RequestMapping(value = "/pruchase",method = RequestMethod.GET)
-    public void purchase(HttpServletRequest request){
-        HttpSession session=request.getSession();
-        String userName=(String)session.getAttribute("userName");
-        if(userName==null) {  //如果没有登录，则返回null
-            return;
-        }
-        //如果已经登录
-        String OrderID=phoneService.generalOrderNum(request);
-
-
-
-    }
 
 
 
