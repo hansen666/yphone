@@ -35,13 +35,25 @@ public class HomePageController {
     }
 
     //返回一个phone_info
-    @RequestMapping(value="/phoneDetail",method =RequestMethod.GET)
+    @RequestMapping(value="/phone_detail",method =RequestMethod.GET)
     public ModelAndView phoneDetail(HttpServletRequest request){
-        ModelAndView model=new ModelAndView("phoneDetail");
+        ModelAndView model=new ModelAndView("phone_detail");
         String phoneID=request.getParameter("pid");
         PhoneInfo phone_info=homeService.getPhoneByID(Long.valueOf(phoneID));
         model.addObject("phone_info",phone_info);
         return model;
+    }
+
+
+    @RequestMapping(value = "/purchase",method = RequestMethod.GET)
+    public ModelAndView purchase(HttpServletRequest request){
+        if(request.getSession().getAttribute("userName")==""||request.getSession().getAttribute("userName")==null){
+            ModelAndView model=new ModelAndView("login");
+            String url=String.valueOf(request.getRequestURL());
+            model.addObject("backurl",url);
+            return model;
+        }else
+            return new ModelAndView("confirm_order");
     }
 
 

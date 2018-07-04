@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.yphone.model.nochange.PhoneInfo" %><%--
   Created by IntelliJ IDEA.
   User: chenhansen
   Date: 2018/7/3
@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<%@ page isELIgnored="false"%>--%>
 <html>
 <head>
     <title>E购网</title>
@@ -67,13 +68,13 @@
             <!-- 轮播（Carousel）项目 -->
             <div class="carousel-inner myCarousel-inner">
                 <div class="item active">
-                    <img src="<%=request.getContextPath()%>/static/images/lunbo1.jpg" alt="First slide">
+                    <img src="<%=request.getContextPath()%>${phone_info.url1}" alt="First slide">
                 </div>
                 <div class="item">
-                    <img src="<%=request.getContextPath()%>/static/images/lunbo2.jpg" alt="Second slide">
+                    <img src="<%=request.getContextPath()%>${phone_info.url2}" alt="Second slide">
                 </div>
                 <div class="item">
-                    <img class="inner-img" src="<%=request.getContextPath()%>/static/images/lunbo3.jpg" alt="Third slide">
+                    <img class="inner-img" src="<%=request.getContextPath()%>${phone_info.url3}" alt="Third slide">
                 </div>
             </div>
             <!-- 轮播（Carousel）导航 -->
@@ -88,16 +89,16 @@
         </div>
     </div>
     <div class="phone_info ">
-        <div class="phone_name"><span class="name">小米6A</span></div>
+        <div class="phone_name"><span class="name">${phone_info.name}</span></div>
         <hr/>
 
         <div class="phone_item">
-            <span class="name">价格：</span><span class="price">￥ 6255</span></div>
-        <div class="phone_item"><span class="name">像素：</span><span class="pixcels">1200万</span></div>
-        <div class="phone_item"><span class="name">内存：</span><span class="RAM">4GB</span></div>
-        <div class="phone_item"><span class="name">容量：</span><span class="capacity">64GB</span></div>
-        <div class="phone_item"><span class="name">尺寸：</span><span class="size">5.5英寸</span></div>
-        <div class="phone_item"><span class="name">颜色：</span><span class="color">流沙金</span></div>
+            <span class="name">价格：</span><span class="price">￥ ${phone_info.price}</span></div>
+        <div class="phone_item"><span class="name">像素：</span><span class="pixcels">${phone_info.pixels}万</span></div>
+        <div class="phone_item"><span class="name">内存：</span><span class="RAM">${phone_info.ram}GB</span></div>
+        <div class="phone_item"><span class="name">容量：</span><span class="capacity">${phone_info.capacity}GB</span></div>
+        <div class="phone_item"><span class="name">尺寸：</span><span class="size">${phone_info.size}英寸</span></div>
+        <div class="phone_item"><span class="name">颜色：</span><span class="color">${phone_info.color}</span></div>
 
         <div class="phone_stock clearfix">
 
@@ -110,12 +111,12 @@
                 </p>
 
             </div>
-            <div class="phone_num"><span class="">库存：</span><span class="num">122件</span></div>
+            <div class="phone_num"><span class="">库存：</span><span class="num">${phone_info.num}件</span></div>
         </div>
         <div class="buy_phone clearfix">
 
-            <a href="" class="product-button01">立即购买</a>
-            <a href="" class="product-button02">加入购物车</a>
+            <a href="purchase" class="product-button01">立即下单</a>
+            <a href="#" class="product-button02">加入购物车</a>
         </div>
     </div>
 </div>

@@ -1205,6 +1205,216 @@ public class PhoneInfoExample extends BaseExample {
             addCriterion("url not between", value1, value2, "url");
             return (Criteria) this;
         }
+
+        public Criteria andUrl1IsNull() {
+            addCriterion("url1 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl1IsNotNull() {
+            addCriterion("url1 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl1EqualTo(String value) {
+            addCriterion("url1 =", value, "url1");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl1NotEqualTo(String value) {
+            addCriterion("url1 <>", value, "url1");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl1GreaterThan(String value) {
+            addCriterion("url1 >", value, "url1");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl1GreaterThanOrEqualTo(String value) {
+            addCriterion("url1 >=", value, "url1");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl1LessThan(String value) {
+            addCriterion("url1 <", value, "url1");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl1LessThanOrEqualTo(String value) {
+            addCriterion("url1 <=", value, "url1");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl1Like(String value) {
+            addCriterion("url1 like", value, "url1");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl1NotLike(String value) {
+            addCriterion("url1 not like", value, "url1");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl1In(List<String> values) {
+            addCriterion("url1 in", values, "url1");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl1NotIn(List<String> values) {
+            addCriterion("url1 not in", values, "url1");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl1Between(String value1, String value2) {
+            addCriterion("url1 between", value1, value2, "url1");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl1NotBetween(String value1, String value2) {
+            addCriterion("url1 not between", value1, value2, "url1");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl2IsNull() {
+            addCriterion("url2 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl2IsNotNull() {
+            addCriterion("url2 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl2EqualTo(String value) {
+            addCriterion("url2 =", value, "url2");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl2NotEqualTo(String value) {
+            addCriterion("url2 <>", value, "url2");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl2GreaterThan(String value) {
+            addCriterion("url2 >", value, "url2");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl2GreaterThanOrEqualTo(String value) {
+            addCriterion("url2 >=", value, "url2");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl2LessThan(String value) {
+            addCriterion("url2 <", value, "url2");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl2LessThanOrEqualTo(String value) {
+            addCriterion("url2 <=", value, "url2");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl2Like(String value) {
+            addCriterion("url2 like", value, "url2");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl2NotLike(String value) {
+            addCriterion("url2 not like", value, "url2");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl2In(List<String> values) {
+            addCriterion("url2 in", values, "url2");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl2NotIn(List<String> values) {
+            addCriterion("url2 not in", values, "url2");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl2Between(String value1, String value2) {
+            addCriterion("url2 between", value1, value2, "url2");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl2NotBetween(String value1, String value2) {
+            addCriterion("url2 not between", value1, value2, "url2");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl3IsNull() {
+            addCriterion("url3 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl3IsNotNull() {
+            addCriterion("url3 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl3EqualTo(String value) {
+            addCriterion("url3 =", value, "url3");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl3NotEqualTo(String value) {
+            addCriterion("url3 <>", value, "url3");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl3GreaterThan(String value) {
+            addCriterion("url3 >", value, "url3");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl3GreaterThanOrEqualTo(String value) {
+            addCriterion("url3 >=", value, "url3");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl3LessThan(String value) {
+            addCriterion("url3 <", value, "url3");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl3LessThanOrEqualTo(String value) {
+            addCriterion("url3 <=", value, "url3");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl3Like(String value) {
+            addCriterion("url3 like", value, "url3");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl3NotLike(String value) {
+            addCriterion("url3 not like", value, "url3");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl3In(List<String> values) {
+            addCriterion("url3 in", values, "url3");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl3NotIn(List<String> values) {
+            addCriterion("url3 not in", values, "url3");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl3Between(String value1, String value2) {
+            addCriterion("url3 between", value1, value2, "url3");
+            return (Criteria) this;
+        }
+
+        public Criteria andUrl3NotBetween(String value1, String value2) {
+            addCriterion("url3 not between", value1, value2, "url3");
+            return (Criteria) this;
+        }
     }
 
     /**
