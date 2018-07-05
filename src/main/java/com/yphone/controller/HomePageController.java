@@ -53,6 +53,7 @@ public class HomePageController {
         String phoneID=request.getParameter("pid");
         PhoneInfo phone_info=homeService.getPhoneByID(Long.valueOf(phoneID));
         model.addObject("phone_info",phone_info);
+        model.addObject("pid",phoneID);
         return model;
     }
 

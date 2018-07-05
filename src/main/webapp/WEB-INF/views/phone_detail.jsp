@@ -90,6 +90,7 @@
     </div>
     <div class="phone_info ">
         <div class="phone_name"><span class="name">${phone_info.name}</span></div>
+        <input type="hidden" id="pid" value="${pid}">
         <hr/>
 
         <div class="phone_item">
@@ -104,18 +105,18 @@
 
             <span class="name">数量</span>
             <div class="buy_num">
-                <input type="text" class="product-stock-text" id="product-stock-text" value="1" placeholder="1">
+                <input type="text" class="product-stock-text" id="product-stock-text" value="1" placeholder="1" onKeyUp="value=value.replace(/[^\d]/g,'')">
                 <p class="product-stock-btn">
                     <a id="pro-quantity-plus">+</a>
                     <a id="pro-quantity-minus">-</a>
                 </p>
 
             </div>
-            <div class="phone_num"><span class="">库存：</span><span class="num">${phone_info.num}件</span></div>
+            <div class="phone_num"><span class="">库存：</span><span class="num" id="phone_info_num">${phone_info.num}</span>件</div>
         </div>
         <div class="buy_phone clearfix">
 
-            <a href="purchase" class="product-button01">立即下单</a>
+            <a  class="product-button01">立即下单</a>
             <a href="#" class="product-button02">加入购物车</a>
         </div>
     </div>
@@ -130,6 +131,7 @@
     $(document).ready(function () {
         var p = '<%=request.getSession().getAttribute("userName")%>';
         loginCheck(p);
+
     })
 
 </script>

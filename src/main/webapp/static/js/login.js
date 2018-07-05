@@ -119,7 +119,7 @@ $('#register_submit').click(function () {
 	if(password.val()!=password1){
 		error.html(msgtemp('<strong>两次密码不一致</strong> ', 'alert-warning'));
 		return;
-	}console.log("pwd")
+	}
 	$.ajax({
 		url:"registerProcess",
 		type:"post",
@@ -160,7 +160,6 @@ $('#login_submit').click(function() {
 	var password = form.find('input.password').val();
 	var error = form.find('.error_msg');
 	var backurl=form.find('input.backurl').val();
-	alert(backurl);
 	if(backurl==""||backurl==null)
 		backurl="home";
 
