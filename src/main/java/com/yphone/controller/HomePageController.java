@@ -1,6 +1,7 @@
 package com.yphone.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.yphone.mappers.UserInfoMapper;
 import com.yphone.model.nochange.AddressUsed;
@@ -91,7 +92,6 @@ public class HomePageController {
         String orderID=phoneService.generalOrderNum(request);
         order.setOrderId(orderID);//订单号;
 
-
     }
 
     //选择地址函数
@@ -118,6 +118,23 @@ public class HomePageController {
         addressUsed.setUserId(userID);
         phoneService.saveAddress(addressUsed);
     }
+
+    @RequestMapping(value = "/showAddress",method = RequestMethod.GET)
+    public void showAddress(HttpServletRequest request,HttpServletResponse response){
+        HttpSession session=request.getSession();
+        String username=(String)session.getAttribute("username");
+        long userID=userInfoMapper.getUserIDByUsername(username);
+        List<AddressUsed> addressUseds=phoneService.getAddressUsed(userID);
+        String jsonStr=JSONArray.toJSONString(addressUseds);
+        JSONObject json=JSONObject.parseObject(jsonStr);
+        try {
+            MainController.jsonToResponse(json, response);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
 
 
 

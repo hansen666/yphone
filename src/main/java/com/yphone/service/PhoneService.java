@@ -87,5 +87,10 @@ public class PhoneService {
         addressUsedMapper.insert(address);
     }
 
+    public List<AddressUsed> getAddressUsed(long userID){
+        return addressUsedMapper.selectByUserID(userID);
+    }
+
+
 
 }
