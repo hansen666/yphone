@@ -33,6 +33,9 @@ public class PhoneService {
     @Autowired
     private AddressUsedMapper addressUsedMapper;
 
+    @Autowired
+    private OrderMapper orderMapper;
+
 
 
 
@@ -57,6 +60,10 @@ public class PhoneService {
         int id=(int)(orderGenerator.getOrderGeneratorId()%1000000);
         String ID="000000".substring(String.valueOf(id).length())+String.valueOf(id);
         return ID+MAndD+tailNum;
+    }
+
+    public void saveOrder(Order order){
+        orderMapper.insert(order);
     }
 
     //选择省份
