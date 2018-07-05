@@ -1,8 +1,10 @@
 package com.yphone.service;
 
+import com.yphone.mappers.AddressUsedMapper;
 import com.yphone.mappers.DistrictMapper;
 import com.yphone.mappers.OrderGeneratorMapper;
 import com.yphone.mappers.OrderMapper;
+import com.yphone.model.nochange.AddressUsed;
 import com.yphone.model.nochange.Order;
 import com.yphone.model.nochange.OrderGenerator;
 import com.yphone.model.nochange.PhoneInfo;
@@ -27,6 +29,9 @@ public class PhoneService {
 
     @Autowired
     private DistrictMapper districtMapper;
+
+    @Autowired
+    private AddressUsedMapper addressUsedMapper;
 
 
 
@@ -77,5 +82,10 @@ public class PhoneService {
         }
         return addressMap;
     }
+
+    public void saveAddress(AddressUsed address){
+        addressUsedMapper.insert(address);
+    }
+
 
 }
