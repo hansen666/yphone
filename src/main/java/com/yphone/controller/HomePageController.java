@@ -11,15 +11,14 @@ import com.yphone.service.HomeService;
 import com.yphone.service.PhoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.Writer;
 import java.util.List;
 import java.util.Map;
 
@@ -110,27 +109,40 @@ public class HomePageController {
 
     }
 
-    @RequestMapping(value = "/saveAddress",method = RequestMethod.GET)
-    public void saveAddress(@ModelAttribute AddressUsed addressUsed,HttpServletRequest request){
+    @RequestMapping(value = "/saveAddress",method = RequestMethod.POST)
+    public void  saveAddress(@ModelAttribute AddressUsed addressUsed, HttpServletRequest request,HttpServletResponse response)throws IOException{
         HttpSession session=request.getSession();
-        String username=(String)session.getAttribute("username");
+        String username=(String)session.getAttribute("userName");
         long userID=userInfoMapper.getUserIDByUsername(username);
         addressUsed.setUserId(userID);
         phoneService.saveAddress(addressUsed);
+        String s=JSON.toJSONString(addressUsed);
+        JSONObject json=JSONObject.parseObject(s);
+        MainController.jsonToResponse(json,response);
     }
 
     @RequestMapping(value = "/showAddress",method = RequestMethod.GET)
-    public void showAddress(HttpServletRequest request,HttpServletResponse response){
+    public void showAddress(HttpServletRequest request,HttpServletResponse response)throws IOException{
         HttpSession session=request.getSession();
-        String username=(String)session.getAttribute("username");
+        String username=(String)session.getAttribute("userName");
         long userID=userInfoMapper.getUserIDByUsername(username);
         List<AddressUsed> addressUseds=phoneService.getAddressUsed(userID);
-        String jsonStr=JSONArray.toJSONString(addressUseds);
-        JSONObject json=JSONObject.parseObject(jsonStr);
+        String jsonStr=JSON.toJSONString(addressUseds);
+        //JSONObject json=JSONObject.parseObject(jsonStr);
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json; charset=utf-8");
+        Writer writer=null;
         try {
-            MainController.jsonToResponse(json, response);
+            writer=response.getWriter();
+            writer.write(jsonStr);
+           // MainController.jsonToResponse(json, response);
         }catch (IOException e){
             e.printStackTrace();
+        }finally {
+            if(writer!=null){
+                writer.flush();
+                writer.close();
+            }
         }
 
     }

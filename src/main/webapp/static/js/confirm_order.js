@@ -71,9 +71,13 @@ $(document).ready(function(){
                 phone:phone,
                 receiver:name
             },
-            success:function(){
-                appendAddress(name,phone,area,address_detail);
+            success:function(msg){
+                alert("success");
+                appendAddress(name,phone,address,address_detail);
+                $('#myModal').modal('hide');
             }
+
+
         })
     });
 
@@ -82,6 +86,20 @@ $(document).ready(function(){
         $('.address-info').hide();
     });
 
+
+    function getAddressUsed() {
+        $.ajax({
+            url:"showAddress",
+            type:"get",
+            dataType:"json",
+            success:function(msg){
+                for(var key in msg){
+                    appendAddress(msg[key].receiver,msg[key].phone,msg[key].area,msg[key].addressDetail);
+                }
+            }
+        })
+
+    }
 
 })
 
@@ -141,17 +159,7 @@ function getAddress(e) {
 
 }
 
-function getAddressUsed() {
-    $.ajax({
-        url:"showAddress",
-        type:"get",
-        dataType:json,
-        success:function(msg){
 
-        }
-    })
-
-}
 
 
 function appendAddress(name,phone,address,address_detail){

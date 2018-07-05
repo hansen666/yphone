@@ -73,19 +73,10 @@
     <div class="hr20"></div>
     <div class="order-address">
 
-        <div class="h">收货地址${num},${phoneID}</div>
+        <div class="h">收货地址</div>
         <div class="order-address-list">
             <ul class="clearfix">
-                <li >
-                    <div class="namePhone item">
-                        <span>陈汉森 15927252770</span>
-                    </div>
 
-                    <div class=" item">
-                        <span>湖北 武汉  华科</span>
-                    </div>
-
-                </li>
                 <li id="address-empty" class="address-used">
                     <div class="address-empty">
                         <a class="address-add-btn" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span>新增收获地址</a>
@@ -178,10 +169,10 @@
                 <tbody>
 
                 <tr>
-                    <td>小米6 4GB+32GB,流沙金</td>
-                    <td>1200.00</td>
-                    <td>2</td>
-                    <td>2400.00</td>
+                    <td>${phoneInfo.name} ${phoneInfo.ram}GB+${phoneInfo.capacity}GB,${phoneInfo.color}</td>
+                    <td>${phoneInfo.price}</td>
+                    <td>${num}</td>
+                    <td>${phoneInfo.price*num}</td>
                 </tr>
                 </tbody>
             </table>
@@ -190,7 +181,7 @@
         <div class="order-submit">
             <div class="order-submit-info">
                 应付总额<b>
-                ￥<span id="payableTotal">1234.00</span>
+                ￥<span id="payableTotal">${phoneInfo.price*num}</span>
             </b>
             </div>
             <div class="order-submit-confirm clearfix">
