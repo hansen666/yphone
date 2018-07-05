@@ -5,12 +5,14 @@ import com.yphone.mappers.OrderGeneratorMapper;
 import com.yphone.mappers.OrderMapper;
 import com.yphone.model.nochange.Order;
 import com.yphone.model.nochange.OrderGenerator;
+import com.yphone.model.nochange.PhoneInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.security.PublicKey;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -25,6 +27,7 @@ public class PhoneService {
 
     @Autowired
     private DistrictMapper districtMapper;
+
 
 
 
@@ -63,6 +66,8 @@ public class PhoneService {
     public List<String> getCounties(String city){
         return districtMapper.selectCountiesByCity(city);
     }
+
+
 
     public Map<String,String> getAddressMap(int id){
         List<Map<Integer,String>> mapList=districtMapper.getAddressByID(id);

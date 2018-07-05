@@ -75,8 +75,10 @@ public class HomePageController {
             ModelAndView model=new ModelAndView("confirm_order");
             String phoneID=request.getParameter("phoneID");
             String num=request.getParameter("num");
+            PhoneInfo phoneInfo=homeService.getPhoneByID(Long.valueOf(phoneID));
             model.addObject("phoneID",phoneID);
             model.addObject("num",num);
+            model.addObject("phoneInfo",phoneInfo);
             return model;
         }
     }
