@@ -1,8 +1,10 @@
 package com.yphone.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.yphone.mappers.UserInfoMapper;
+import com.yphone.model.nochange.AddressUsed;
 import com.yphone.model.nochange.Order;
 import com.yphone.model.nochange.PhoneInfo;
 import com.yphone.service.HomeService;
@@ -76,8 +78,10 @@ public class HomePageController {
             return model;
         }else {
             ModelAndView model=new ModelAndView("confirm_order");
+            PhoneInfo phoneInfo=homeService.getPhoneByID(Long.valueOf(phoneID));
             model.addObject("phoneID",phoneID);
             model.addObject("num",num);
+            model.addObject("phoneInfo",phoneInfo);
             return model;
         }
     }
@@ -87,7 +91,6 @@ public class HomePageController {
     public void confirm_order(@ModelAttribute Order order, HttpServletRequest request){
         String orderID=phoneService.generalOrderNum(request);
         order.setOrderId(orderID);//订单号;
-
 
     }
 
@@ -106,6 +109,34 @@ public class HomePageController {
 
 
     }
+
+    @RequestMapping(value = "/saveAddress",method = RequestMethod.GET)
+    public void saveAddress(@ModelAttribute AddressUsed addressUsed,HttpServletRequest request){
+        HttpSession session=request.getSession();
+        String username=(String)session.getAttribute("username");
+        long userID=userInfoMapper.getUserIDByUsername(username);
+        addressUsed.setUserId(userID);
+        phoneService.saveAddress(addressUsed);
+    }
+
+    @RequestMapping(value = "/showAddress",method = RequestMethod.GET)
+    public void showAddress(HttpServletRequest request,HttpServletResponse response){
+        HttpSession session=request.getSession();
+        String username=(String)session.getAttribute("username");
+        long userID=userInfoMapper.getUserIDByUsername(username);
+        List<AddressUsed> addressUseds=phoneService.getAddressUsed(userID);
+        String jsonStr=JSONArray.toJSONString(addressUseds);
+        JSONObject json=JSONObject.parseObject(jsonStr);
+        try {
+            MainController.jsonToResponse(json, response);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
+
+
 
     //省份
     public void provinces(){

@@ -1,16 +1,20 @@
 package com.yphone.service;
 
+import com.yphone.mappers.AddressUsedMapper;
 import com.yphone.mappers.DistrictMapper;
 import com.yphone.mappers.OrderGeneratorMapper;
 import com.yphone.mappers.OrderMapper;
+import com.yphone.model.nochange.AddressUsed;
 import com.yphone.model.nochange.Order;
 import com.yphone.model.nochange.OrderGenerator;
+import com.yphone.model.nochange.PhoneInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.security.PublicKey;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -25,6 +29,10 @@ public class PhoneService {
 
     @Autowired
     private DistrictMapper districtMapper;
+
+    @Autowired
+    private AddressUsedMapper addressUsedMapper;
+
 
 
 
@@ -64,6 +72,8 @@ public class PhoneService {
         return districtMapper.selectCountiesByCity(city);
     }
 
+
+
     public Map<String,String> getAddressMap(int id){
         List<Map<Integer,String>> mapList=districtMapper.getAddressByID(id);
         Map<String,String> addressMap=new HashMap<>();
@@ -72,5 +82,15 @@ public class PhoneService {
         }
         return addressMap;
     }
+
+    public void saveAddress(AddressUsed address){
+        addressUsedMapper.insert(address);
+    }
+
+    public List<AddressUsed> getAddressUsed(long userID){
+        return addressUsedMapper.selectByUserID(userID);
+    }
+
+
 
 }

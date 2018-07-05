@@ -19,6 +19,7 @@ public interface UserInfoMapper extends MBGUserInfoMapper {
     long getUserIDByPhone(String phone);
     int isPhoneExist(String phone);
     int isUserNameExist(String userName);
+    long getUserIDByUsername(String username);
 
 
 }
