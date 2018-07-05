@@ -86,10 +86,15 @@
     width:1120px;
 }
 
-.order-address-list ul{
+.order-address-list>ul{
     position: relative;
     width:1140px;
     list-style: none;
+}
+
+.order-address-list li .namePhone{
+    margin-top:30px;
+
 }
 
 .order-address-list li{
@@ -103,7 +108,7 @@
 }
 
 .order-address-list li .item{
-    text-align: center;
+    margin-left: 30px;
 }
 /* .order-address-list .address-empty{
     border:1px solid #eaeaea;
@@ -194,12 +199,16 @@
 }
 
 
+.form-group .address-info{
+    position: absolute;
+    margin: 0;
+}
 
 
 .address-info{
     display: none;
     background: #fff;
-    width: 400px;
+    width: 560px;
 }
 
 .address-head{
@@ -232,7 +241,7 @@
     clear:both;
 }
 
-.left a{
+.address-head .left a{
     float: left;
     margin-left: 25px;
     text-align: center;
@@ -242,6 +251,16 @@
     /* border-bottom: #f00 solid 1px; */
 }
 
+
+.address-head .left span{
+    display: block;
+    margin-top: 15px;
+    margin-left:25px;
+    position: absolute;
+    width: 40px;
+    color: #f00;
+
+}
 .address-body{
     position: relative;
 }
@@ -254,12 +273,13 @@
 }
 
 .address-list .address-items{
+    font-size: 8px;
     height: 24px;
     margin-top: 8px;
     position: relative;
     float: left;
-    width: 35px;
-    margin-left:25px;
+    width: 55px;
+    margin-left:5px;
 
 
 }

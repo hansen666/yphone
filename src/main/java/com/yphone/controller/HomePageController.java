@@ -67,19 +67,19 @@ public class HomePageController {
     //购买商品函数
     @RequestMapping(value = "/purchase",method = RequestMethod.GET)
     public ModelAndView purchase(HttpServletRequest request){
+        String phoneID=request.getParameter("phoneID");
+        String num=request.getParameter("num");
         //如果没有登录
         if(request.getSession().getAttribute("userName")==""||request.getSession().getAttribute("userName")==null){
             ModelAndView model=new ModelAndView("login");
             String url=String.valueOf(request.getRequestURL());
-            String phoneID=request.getParameter("phoneID");
             HttpSession session=request.getSession();
             session.setAttribute("phoneID",phoneID);
+            session.setAttribute("num",num);
             model.addObject("backurl",url);
             return model;
         }else {
             ModelAndView model=new ModelAndView("confirm_order");
-            String phoneID=request.getParameter("phoneID");
-            String num=request.getParameter("num");
             PhoneInfo phoneInfo=homeService.getPhoneByID(Long.valueOf(phoneID));
             model.addObject("phoneID",phoneID);
             model.addObject("num",num);
