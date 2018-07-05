@@ -3,6 +3,7 @@ package com.yphone.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.yphone.mappers.UserInfoMapper;
+import com.yphone.model.nochange.AddressUsed;
 import com.yphone.model.nochange.Order;
 import com.yphone.model.nochange.PhoneInfo;
 import com.yphone.service.HomeService;
@@ -108,6 +109,17 @@ public class HomePageController {
 
 
     }
+
+    @RequestMapping(value = "/saveAddress",method = RequestMethod.GET)
+    public void saveAddress(@ModelAttribute AddressUsed addressUsed,HttpServletRequest request){
+        HttpSession session=request.getSession();
+        String username=(String)session.getAttribute("username");
+        long userID=userInfoMapper.getUserIDByUsername(username);
+        addressUsed.setUserId(userID);
+        phoneService.saveAddress(addressUsed);
+    }
+
+
 
     //省份
     public void provinces(){
