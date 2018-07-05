@@ -73,11 +73,11 @@
     <div class="hr20"></div>
     <div class="order-address">
 
-        <div class="h">收货地址</div>
+        <div class="h">收货地址${num},${phoneID}</div>
         <div class="order-address-list">
             <ul class="clearfix">
                 <li >
-                    <div class=" item">
+                    <div class="namePhone item">
                         <span>陈汉森 15927252770</span>
                     </div>
 
@@ -123,6 +123,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="left clearfix">
+                                                            <span >------</span>
                                                             <a class="province">省份</a>
                                                             <a class="city">城市</a>
                                                             <a class="district">县区</a>
@@ -132,39 +133,7 @@
                                                     </div>
                                                     <div class="address-body clearfix">
                                                         <ul class="address-list">
-                                                            <li class="address-items">
-                                                                <a href="" >湖北</a>
-                                                            </li >
-                                                            <li class="address-items">
-                                                                <a href="">湖北</a>
-                                                            </li>
-                                                            <li class="address-items">
-                                                                <a href="">湖北</a>
-                                                            </li>
-                                                            <li class="address-items">
-                                                                <a href="">湖北</a>
-                                                            </li>
-                                                            <li class="address-items">
-                                                                <a href="">湖北</a>
-                                                            </li>
-                                                            <li class="address-items">
-                                                                <a href="">湖北</a>
-                                                            </li>
-                                                            <li class="address-items">
-                                                                <a href="">湖北</a>
-                                                            </li>
-                                                            <li class="address-items">
-                                                                <a href="">湖北</a>
-                                                            </li>
-                                                            <li class="address-items">
-                                                                <a href="">湖北</a>
-                                                            </li>
-                                                            <li class="address-items">
-                                                                <a href="">湖北</a>
-                                                            </li>
-                                                            <li class="address-items">
-                                                                <a href="">湖北</a>
-                                                            </li>
+
 
                                                         </ul>
                                                     </div>
