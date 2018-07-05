@@ -3,6 +3,7 @@ package com.yphone.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.sun.deploy.net.HttpResponse;
 import com.yphone.mappers.UserInfoMapper;
 import com.yphone.model.nochange.AddressUsed;
 import com.yphone.model.nochange.Order;
@@ -18,7 +19,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+
 import java.io.Writer;
+
+import java.util.Date;
+
 import java.util.List;
 import java.util.Map;
 
@@ -144,6 +149,24 @@ public class HomePageController {
                 writer.close();
             }
         }
+
+    }
+
+    @RequestMapping(value = "/saveOrder",method = RequestMethod.GET)
+    public ModelAndView saveOrder(@ModelAttribute Order order, HttpServletRequest request, HttpServletResponse response){
+        ModelAndView model=new ModelAndView("pay");
+        HttpSession session=request.getSession();
+        String username=(String)session.getAttribute("userName");
+        long userID=userInfoMapper.getUserIDByUsername(username);
+        String orderID=phoneService.generalOrderNum(request);
+
+        order.setOrderId(orderID);
+        order.setUserId(userID);
+        order.setGmtCreate(new Date());
+        order.setGmtModified(new Date());
+        phoneService.saveOrder(order);
+        model.addObject("order",order);
+        return model;
 
     }
 
