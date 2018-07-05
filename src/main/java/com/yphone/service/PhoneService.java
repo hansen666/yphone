@@ -1,6 +1,8 @@
 package com.yphone.service;
 
+import com.yphone.mappers.DistrictMapper;
 import com.yphone.mappers.OrderGeneratorMapper;
+import com.yphone.mappers.OrderMapper;
 import com.yphone.model.nochange.Order;
 import com.yphone.model.nochange.OrderGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class PhoneService {
 
     @Autowired
     private OrderGeneratorMapper orderGeneratorMapper;
+
+    @Autowired
+    private DistrictMapper districtMapper;
 
 
 
@@ -42,4 +50,27 @@ public class PhoneService {
         String ID="000000".substring(String.valueOf(id).length())+String.valueOf(id);
         return ID+MAndD+tailNum;
     }
+
+    //选择省份
+    public List<String> getProvinces(){
+        return districtMapper.selectProvinces();
+    }
+
+    public List<String> getCities(String province){
+        return districtMapper.selectCitiesByProvince(province);
+    }
+
+    public List<String> getCounties(String city){
+        return districtMapper.selectCountiesByCity(city);
+    }
+
+    public Map<String,String> getAddressMap(int id){
+        List<Map<Integer,String>> mapList=districtMapper.getAddressByID(id);
+        Map<String,String> addressMap=new HashMap<>();
+        for(Map<Integer,String> map:mapList){
+            addressMap.put(map.get("district_id"),map.get("name"));
+        }
+        return addressMap;
+    }
+
 }
