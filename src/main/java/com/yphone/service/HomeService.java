@@ -28,6 +28,10 @@ public class HomeService {
         return phoneInfoMapper.getPhoneByName(name);
     }
 
+    public String getNameByID(long ID){
+        return phoneInfoMapper.getNameByID(ID);
+    }
+
     public  PhoneInfo getPhoneByID(Long ID){
         return phoneInfoMapper.selectByPrimaryKey(ID);
     }
