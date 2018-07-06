@@ -152,7 +152,7 @@ public class HomePageController {
 
     }
 
-    @RequestMapping(value = "/saveOrder",method = RequestMethod.GET)
+    @RequestMapping(value = "/saveOrder",method = RequestMethod.POST)
     public ModelAndView saveOrder(@ModelAttribute Order order, HttpServletRequest request, HttpServletResponse response){
         ModelAndView model=new ModelAndView("pay");
         HttpSession session=request.getSession();
@@ -162,8 +162,8 @@ public class HomePageController {
 
         order.setOrderId(orderID);
         order.setUserId(userID);
-        order.setGmtCreate(new Date());
-        order.setGmtModified(new Date());
+        //order.setGmtCreate(new Date());
+        //order.setGmtModified(new Date());
         phoneService.saveOrder(order);
         model.addObject("order",order);
         return model;

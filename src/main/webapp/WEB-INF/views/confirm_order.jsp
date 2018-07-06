@@ -170,8 +170,8 @@
 
                 <tr>
                     <td>${phoneInfo.name} ${phoneInfo.ram}GB+${phoneInfo.capacity}GB,${phoneInfo.color}</td>
-                    <td>${phoneInfo.price}</td>
-                    <td>${num}</td>
+                    <td >${phoneInfo.price}</td>
+                    <td id="pnum">${num}</td>
                     <td>${phoneInfo.price*num}</td>
                 </tr>
                 </tbody>
@@ -185,7 +185,15 @@
             </b>
             </div>
             <div class="order-submit-confirm clearfix">
-                <a href="" class="order-submit-btn">
+                <form id="submit_form" action="saveOrder" method="post">
+                    <input type="hidden" class="receiver" name="receiver">
+                    <input type="hidden" class="price" name="price">
+                    <input type="hidden" class="num" name="num">
+                    <input type="hidden" class="address" name="address">
+                    <input type="hidden" class="phone" name="phone">
+                    <input type="hidden" class="phoneId" name="phoneId" value="${phoneInfo.phoneId}">
+                </form>
+                <a  class="order-submit-btn">
                     提交订单
                 </a>
             </div>
