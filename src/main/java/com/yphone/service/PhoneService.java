@@ -63,7 +63,7 @@ public class PhoneService {
     }
 
     public void saveOrder(Order order){
-        orderMapper.insert(order);
+        orderMapper.insertSelective(order);
     }
 
     //选择省份
