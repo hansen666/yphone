@@ -55,15 +55,17 @@ public class PhoneService {
         OrderGenerator orderGenerator=new OrderGenerator();
         orderGenerator.setDateNum(MAndD);
         orderGenerator.setPhoneLast4(tailNum);
+        orderGenerator.setGmtCreate(date);
+        orderGenerator.setGmtModified(date);
         orderGeneratorMapper.insertSelective(orderGenerator);
 
         int id=(int)(orderGenerator.getOrderGeneratorId()%1000000);
-        String ID="000000".substring(String.valueOf(id).length())+String.valueOf(id);
-        return ID+MAndD+tailNum;
+        String ID="123456".substring(String.valueOf(id).length())+String.valueOf(id);
+        return ID.substring(0,4)+MAndD.substring(0,2)+tailNum.substring(0,2)+MAndD.substring(2)+tailNum.substring(2)+ID.substring(4);
     }
 
     public void saveOrder(Order order){
-        orderMapper.insert(order);
+        orderMapper.insertSelective(order);
     }
 
     //选择省份
