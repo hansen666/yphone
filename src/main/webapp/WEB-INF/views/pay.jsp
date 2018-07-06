@@ -44,7 +44,7 @@
             <h4>订单提交成功，只差付款了</h4>
             <div class="orderNum left">
                 <span class="msg_orderNum">订单号：</span>
-                <span  style="color:#da3232;">12344</span>
+                <span  style="color:#da3232;"> ${order.orderId}</span>
             </div>
 
             <div class="payNum right">
@@ -69,10 +69,10 @@
                         收货信息：${order.receiver}    ${order.phone}
                     </li>
                     <li>
-                        商品名称：
+                        商品名称：${phone_detail}
                     </li>
                     <li>
-                        购买时间：$(order.gmtCreate)
+                        购买时间：${date}
                     </li>
                     </ul>
                 </div>
@@ -94,22 +94,41 @@
         <div class="pay_list">
             <ul>
                 <li>
-                    <a>
-                        <img src="<%=request.getContextPath()%>/static/images/weixinpay0701.png">
-                    </a>
+
+                        <img data-toggle="modal" data-target="#erWeiMa"
+                             src="<%=request.getContextPath()%>/static/images/weixinpay0701.png">
+
                 </li>
                 <li>
-                    <a>
-                        <img src="<%=request.getContextPath()%>/static/images/payOnline_zfb.png">
-                    </a>
+
+                        <img data-toggle="modal" data-target="#erWeiMa"
+                             src="<%=request.getContextPath()%>/static/images/payOnline_zfb.png">
                 </li>
             </ul>
         </div>
+        <div class="modal fade" id="erWeiMa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>请扫描二维码进行支付</h5>
+                    </div>
+                    <div id="qrcode" class="modal-body" style="width:160px; height:160px; margin-top:15px; padding-left: 250px;"></div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
+
 <script src="<%=request.getContextPath()%>/static/js/jquery-3.1.1.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/qrcode.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/js/pay.js"></script>
+
 </body>
 
 </html>
