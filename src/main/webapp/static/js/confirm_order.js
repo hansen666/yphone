@@ -87,6 +87,44 @@ $(document).ready(function(){
     });
 
 
+
+    $('.order-submit-btn').click(function(){
+        var price=$('#payableTotal').html();
+        var phone="";
+        var num=$('#pnum').html();
+        var receiver="";
+        var address="";
+        var selected=0;
+        $('.order-address-list>ul>li').each(function(){
+            if($(this).hasClass("selected")){
+                selected=1;
+                phone=$(this).find('.order_phone').html();
+                receiver=$(this).find('.order_name').html();
+                address=$(this).find('.order_address').html()+
+                    $(this).find('.order_detail_address').html();
+            }
+        });
+
+        if(selected==0){
+            alert("请选择收货地址信息");
+            return;
+        }
+
+        $('#submit_form .receiver').val(receiver);
+        $('#submit_form .num').val(num);
+        $('#submit_form .phone').val(phone);
+        $('#submit_form .address').val(address);
+        $('#submit_form .price').val(price);
+        console.log($('#submit_form .receiver').val());
+        console.log($('#submit_form .num').val());
+        console.log($('#submit_form .phone').val());
+        console.log($('#submit_form .address').val());
+        console.log($('#submit_form .price').val());
+        $('#submit_form').submit();
+    })
+
+
+
     function getAddressUsed() {
         $.ajax({
             url:"showAddress",
@@ -121,7 +159,7 @@ function getAddressInfo(addressID){
 function putAddress(msg){
     var htm="";
     for(i in msg){
-        htm+='<li class="address-items">'+
+        htm+='<li class="address-items" >'+
             '<a  id="'+i+'" onclick="getAddress(this)" >'+msg[i]+'</a>'+
             '</li >';
     }
@@ -153,9 +191,19 @@ function getAddress(e) {
         $('.address-head .left span').css('margin-left','140px');
         getAddressInfo(districtPid);
         index++;
-
     }
+}
 
+function itemSelect(e){
+    $('.order-address-list>ul>li').each(function(){
+
+        if($(this).hasClass("selected")){
+            $(this).removeClass("selected");
+            $(this).css("border","1px solid #eaeaea");
+        }
+    })
+    $(e).addClass("selected");
+    $(e).css("border","1px solid #f00");
 
 }
 
@@ -163,13 +211,13 @@ function getAddress(e) {
 
 
 function appendAddress(name,phone,address,address_detail){
-    var h='<li >'+
+    var h='<li onclick="itemSelect(this)">'+
         '<div class="namePhone item">'+
-        '<span>'+name+'  '+phone+ '</span>'+
+        '<span class="order_name">'+name+'</span>'+' '+'<span class="order_phone">' +phone+ '</span>'+
         '</div>'+
 
         '<div class=" item">'+
-        '<span>'+address+'  '+address_detail+ '</span>'+
+        '<span class="order_address">'+address+'  '+'</span>'+'<span class="order_detail_address">'+address_detail+ '</span>'+
         '</div>'+
 
         '</li>';
