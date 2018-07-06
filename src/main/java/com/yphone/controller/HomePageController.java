@@ -22,6 +22,7 @@ import java.io.IOException;
 
 import java.io.Writer;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import java.util.List;
@@ -160,16 +161,21 @@ public class HomePageController {
         long userID=userInfoMapper.getUserIDByUsername(username);
         String orderID=phoneService.generalOrderNum(request);
 
+        Date date=new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
+        String dateStr=sdf.format(date).replaceAll("-","/"); //获取月日，4位
+
         order.setOrderId(orderID);
         order.setUserId(userID);
-        order.setGmtCreate(new Date());
-        order.setGmtModified(new Date());
+        order.setGmtCreate(date);
+        order.setGmtModified(date);
         order.setStatus(0);
         phoneService.saveOrder(order);
         PhoneInfo phoneInfo=homeService.getPhoneByID(order.getPhoneId());
         String phone_detail=phoneInfo.getName()+" "+phoneInfo.getDescription()+" "+phoneInfo.getCapacity()+"+"+phoneInfo.getRam()
                 +"GB "+phoneInfo.getColor();
         model.addObject("order",order);
+        model.addObject("date",dateStr);
         model.addObject("phone_detail",phone_detail);
         return model;
 
