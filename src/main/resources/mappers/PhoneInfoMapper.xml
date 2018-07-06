@@ -31,4 +31,8 @@
     <select id="selectByMinID" resultType="com.yphone.model.nochange.PhoneInfo">
         select * from phone_info where phone_id in(select min(phone_id) from phone_info);
     </select>
+
+    <select id="getNameByID" resultType="java.lang.String" parameterType="java.lang.Long">
+        SELECT name from phone_info WHERE phone_id=#{ID}
+    </select>
 </mapper>

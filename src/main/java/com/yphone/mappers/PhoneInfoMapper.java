@@ -21,5 +21,7 @@ public interface PhoneInfoMapper extends MBGPhoneInfoMapper {
 
     PhoneInfo selectByMinID();
 
+    String getNameByID(long ID);
+
 
 }

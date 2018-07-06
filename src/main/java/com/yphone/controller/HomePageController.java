@@ -162,10 +162,15 @@ public class HomePageController {
 
         order.setOrderId(orderID);
         order.setUserId(userID);
-        //order.setGmtCreate(new Date());
-        //order.setGmtModified(new Date());
+        order.setGmtCreate(new Date());
+        order.setGmtModified(new Date());
+        order.setStatus(0);
         phoneService.saveOrder(order);
+        PhoneInfo phoneInfo=homeService.getPhoneByID(order.getPhoneId());
+        String phone_detail=phoneInfo.getName()+" "+phoneInfo.getDescription()+" "+phoneInfo.getCapacity()+"+"+phoneInfo.getRam()
+                +"GB "+phoneInfo.getColor();
         model.addObject("order",order);
+        model.addObject("phone_detail",phone_detail);
         return model;
 
     }
