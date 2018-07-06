@@ -64,6 +64,7 @@ public class DruidDataSourceConfig {
         datasource.setTestOnReturn(false);
         datasource.setPoolPreparedStatements(true);
         datasource.setMaxPoolPreparedStatementPerConnectionSize(20);
+
         try {
             datasource.setFilters("stat,wall,log4j");
         } catch (SQLException e) {
