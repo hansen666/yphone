@@ -153,11 +153,11 @@
     <selectKey keyProperty="orderId" order="AFTER" resultType="java.lang.String">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into order_list (order_id,user_id, phone_id, price,
+    insert into order_list (user_id, phone_id, price, 
       address, num, receiver, 
       status, phone, gmt_create, 
       gmt_modified)
-    values (#{orderId,jdbcType=VARCHAR },#{userId,jdbcType=BIGINT}, #{phoneId,jdbcType=BIGINT}, #{price,jdbcType=DECIMAL},
+    values (#{userId,jdbcType=BIGINT}, #{phoneId,jdbcType=BIGINT}, #{price,jdbcType=DECIMAL}, 
       #{address,jdbcType=VARCHAR}, #{num,jdbcType=TINYINT}, #{receiver,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT}, #{phone,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, 
       #{gmtModified,jdbcType=TIMESTAMP})

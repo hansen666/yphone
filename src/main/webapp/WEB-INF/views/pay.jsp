@@ -69,7 +69,7 @@
                         收货信息：${order.receiver}    ${order.phone}
                     </li>
                     <li>
-                        商品名称：
+                        商品名称：${phone_detail}
                     </li>
                     <li>
                         购买时间：$(order.gmtCreate)
