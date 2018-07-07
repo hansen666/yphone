@@ -59,7 +59,7 @@
             <property name="useActualColumnNames" value="false"/>
             <generatedKey column="order_generator_id" identity="true" sqlStatement="MySql"/>
         </table>
-        <table  tableName="order" domainObjectName="Order">
+        <table  tableName="order_list" domainObjectName="Order">
             <property name="useActualColumnNames" value="false"/>
             <generatedKey column="order_id" identity="true" sqlStatement="MySql"/>
         </table>

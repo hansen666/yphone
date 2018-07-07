@@ -20,7 +20,7 @@
 
 <div class="header">
     <div class="container">
-        <a class="logo" href="index.html">
+        <a class="logo" href="home">
             <img class="imgstyle" src="<%=request.getContextPath()%>/static/images/logo.png" alt="E购网">
         </a>
     </div>
@@ -62,6 +62,7 @@
                                 <input class="form-control password" name="password" id="login_pwd" placeholder="请输入密码"
                                        autocomplete="off" type="password">
                                 <!-- <div class="input-group-addon pwd-toggle" title="显示密码"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></div> -->
+                                <input class="backurl" type="hidden" name="backurl" value=${backurl}>
                             </div>
                         </div>
                         <div class="checkbox">
@@ -200,8 +201,8 @@
                 $('.login').fadeIn(150)
             })
         });
-
     })
+
 </script>
 
 </body>

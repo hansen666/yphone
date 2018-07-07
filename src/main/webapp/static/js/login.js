@@ -6,6 +6,8 @@ function msgtemp(msg,className) {
 };
 
 
+
+
 (function($){
 	$.fn.extend({
 		/* 重置验证码发送按钮 */
@@ -117,7 +119,7 @@ $('#register_submit').click(function () {
 	if(password.val()!=password1){
 		error.html(msgtemp('<strong>两次密码不一致</strong> ', 'alert-warning'));
 		return;
-	}console.log("pwd")
+	}
 	$.ajax({
 		url:"registerProcess",
 		type:"post",
@@ -157,6 +159,9 @@ $('#login_submit').click(function() {
 	var userID = form.find('input.phone').val();
 	var password = form.find('input.password').val();
 	var error = form.find('.error_msg');
+	var backurl=form.find('input.backurl').val();
+	if(backurl==""||backurl==null)
+		backurl="home";
 
 
 
@@ -176,8 +181,10 @@ $('#login_submit').click(function() {
 				password: password
 			},
 			success: function (msg) {
-				if(msg==1)
-					parent.document.location.href = "home";
+
+				if(msg==1) {
+					parent.document.location.href = backurl;
+				}
 				if(msg==2)
 					error.html(msgtemp('<strong>账户与密码不匹配，请重新输入</strong> ',    'alert-warning'));
 				if(msg==3)

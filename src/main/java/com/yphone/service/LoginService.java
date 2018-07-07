@@ -5,6 +5,8 @@ import com.yphone.model.nochange.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by chenhansen on 2018/5/21.
  */
@@ -40,7 +42,13 @@ public class LoginService {
         return adminInfoMapper.isAdminExist(adminName)>0?true:false;
     }
 
-    //public boolean is
+    public String getNameByPhone(String phone){
+        return userInfoMapper.getNameByPhone(phone);
+    }
+    public String getPhoneByName(String name){
+        return userInfoMapper.getPhoneByName(name);
+    }
+
 
     public int loginResult(String account,String password){
         if(!isPhone(account)){  //检测到如果不是用手机号登录
@@ -80,5 +88,7 @@ public class LoginService {
             return 3;  //3-用户名已存在
         return 1;
     }
+
+
 
 }

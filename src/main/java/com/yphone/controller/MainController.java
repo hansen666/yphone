@@ -1,5 +1,6 @@
 package com.yphone.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.yphone.mappers.UserInfoMapper;
 import com.yphone.model.nochange.UserInfo;
@@ -12,8 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by chenhansen on 2018/5/21.
@@ -35,6 +40,7 @@ public class MainController {
 
 
 
+
     @RequestMapping(value = "/loginProcess",method = RequestMethod.POST)
     public void loginProcess(HttpServletRequest request, HttpServletResponse response)throws IOException{
         //TODO 用户登录，返回数字用字符串形式，如“1”；
@@ -43,10 +49,26 @@ public class MainController {
         String username=request.getParameter("userID");
         String password=request.getParameter("password");
         int result=loginService.loginResult(username,password);
+        String phone;
+        if(username.matches("[0-9]{11}")) {
+            phone = new String(username);
+            username=userInfoMapper.getNameByPhone(phone);
+        }
+        else{
+            phone=userInfoMapper.getPhoneByName(username);
+        }
+
         Writer writer=null;
         response.setCharacterEncoding("UTF-8");
         writer=response.getWriter();
         writer.write(String.valueOf(result));
+        if(1==result){
+            //创建一个session对象保存信息
+            HttpSession session=request.getSession();
+            session.setAttribute("userName",username);
+            session.setAttribute("phone",phone);
+
+        }
         if(writer!=null){
             writer.flush();
             writer.close();
@@ -72,6 +94,7 @@ public class MainController {
 
        else{    //注册成功，把记录插入到表中
            userInfoMapper.insert(userInfo);
+
            writer.write("1");
        }
 
@@ -90,8 +113,8 @@ public class MainController {
 
 
     @RequestMapping(value = "/login",method = RequestMethod.GET)
-    public String login(){
-
+    public String login(HttpServletRequest request){
+        String s=request.getParameter("userName");
         return "login";
     }
 
@@ -100,6 +123,13 @@ public class MainController {
 
         return "admin";
     }
+
+    @RequestMapping(value = "/quitLogin",method = RequestMethod.GET)
+    public String quit(HttpServletRequest request){
+        request.getSession().setAttribute("userName","");
+        return "home";
+    }
+    
 
     @RequestMapping(value = "/home",method = RequestMethod.GET)
     public String home(){
@@ -125,7 +155,13 @@ public class MainController {
         return model;
     }
 
-    public void jsonToResponse(JSONObject json, HttpServletResponse response)throws IOException{
+    @RequestMapping(value = "/user_info",method = RequestMethod.GET)
+    public String userInfo(){
+
+        return "user_msg";
+    }
+
+    public static void jsonToResponse(JSONObject json, HttpServletResponse response)throws IOException{
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json; charset=utf-8");
         Writer writer = null;
