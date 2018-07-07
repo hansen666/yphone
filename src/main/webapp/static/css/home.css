@@ -208,6 +208,17 @@
     height: 58px;
 }
 
+.multiPage{
+    font-size:16px;
+    position: absolute;
+    top: 15px;;
+    right: 0;
+}
+.multiPage a{
+    text-decoration: none;
+}
+
+
 .phone-type .b{
     position: relative;
     width: 1270px;

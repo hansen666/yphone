@@ -39,7 +39,7 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                     <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">个人中心</a>
+                        <a role="menuitem" tabindex="-1" href="user_info">个人中心</a>
                     </li>
                     <li role="presentation">
                         <a role="menuitem" tabindex="-1" href="quitLogin">退出登录</a>

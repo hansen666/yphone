@@ -48,7 +48,7 @@
             </div>
 
             <div class="payNum right">
-                <span class="payNumAll right">￥1200元</span>
+                <span class="payNumAll right">￥<span id="order_price">${order.price}</span></span>
                 <span class="payTitle right">应付总额:</span>
             </div>
         </div>
@@ -63,7 +63,7 @@
                 <div class="panel-body">
                     <ul class="nav nav-pills nav-stacked">
                     <li>
-                        订单编号： ${order.orderId}
+                        订单编号：<span id="order_id">${order.orderId}</span>
                     </li>
                     <li>
                         收货信息：${order.receiver}    ${order.phone}
@@ -93,32 +93,33 @@
         </h5>
         <div class="pay_list">
             <ul>
-                <li>
+                <li >
 
-                        <img data-toggle="modal" data-target="#erWeiMa"
+                        <img
+                                <%--data-toggle="modal" data-target="#erWeiMa"--%>
                              src="<%=request.getContextPath()%>/static/images/weixinpay0701.png">
 
                 </li>
-                <li>
-
-                        <img data-toggle="modal" data-target="#erWeiMa"
+                <li id="alipay">
+                        <img
+                                <%--data-toggle="modal" data-target="#erWeiMa"--%>
                              src="<%=request.getContextPath()%>/static/images/payOnline_zfb.png">
                 </li>
             </ul>
         </div>
-        <div class="modal fade" id="erWeiMa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5>请扫描二维码进行支付</h5>
-                    </div>
-                    <div id="qrcode" class="modal-body" style="width:160px; height:160px; margin-top:15px; padding-left: 250px;"></div>
-                    <div class="modal-footer">
+        <%--<div class="modal fade" id="erWeiMa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ">--%>
+            <%--<div class="modal-dialog">--%>
+                <%--<div class="modal-content">--%>
+                    <%--<div class="modal-header">--%>
+                        <%--<h5>请扫描二维码进行支付</h5>--%>
+                    <%--</div>--%>
+                    <%--<div id="qrcode" class="modal-body" style="width:160px; height:160px; margin-top:15px; padding-left: 250px;"></div>--%>
+                    <%--<div class="modal-footer">--%>
 
-                    </div>
-                </div>
-            </div>
-        </div>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+        <%--</div>--%>
 
     </div>
 </div>

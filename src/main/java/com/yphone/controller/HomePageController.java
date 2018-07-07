@@ -181,6 +181,15 @@ public class HomePageController {
 
     }
 
+    @RequestMapping(value = "/fastpay",method = RequestMethod.GET)
+    public String fastpay(HttpServletRequest request){
+        //ModelAndView model=new ModelAndView("alipay.trade.page.pay");
+        request.setAttribute("WIDout_trade_no",request.getParameter("orderID"));
+        request.setAttribute("WIDtotal_amount",request.getParameter("orderPrice"));
+        //model.addObject("WIDout_trade_no",request.getParameter("orderID"));
+        //model.addObject("WIDtotal_amount",request.getParameter("orderPrice"));
+        return "alipay.trade.page.pay";
+    }
 
 
 

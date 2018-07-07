@@ -44,7 +44,7 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                     <li role="presentation">
-                        <a role="menuitem" tabindex="-1" href="#">个人中心</a>
+                        <a role="menuitem" tabindex="-1" href="user_info">个人中心</a>
                     </li>
                     <li role="presentation">
                         <a role="menuitem" tabindex="-1" href="quitLogin">退出登录</a>
@@ -178,6 +178,12 @@
         <div class="phone-type huawei">
             <div class="h">
                 <h2 class="title">华为</h2>
+                <div class="multiPage">
+                    <a href="#">查看全部
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+
+                </div>
             </div>
             <div class="b">
                 <div class="goods-list">
@@ -191,6 +197,12 @@
         <div class="phone-type xiaomi">
             <div class="h">
                 <h2 class="title">小米</h2>
+                <div class="multiPage">
+                    <a href="#">查看全部
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+
+                </div>
             </div>
             <div class="b">
                 <div class="goods-list">

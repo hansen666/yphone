@@ -115,7 +115,6 @@ public class MainController {
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login(HttpServletRequest request){
         String s=request.getParameter("userName");
-        System.out.println(s);
         return "login";
     }
 
@@ -154,6 +153,12 @@ public class MainController {
         ModelAndView model=new ModelAndView("login");
         model.addObject("p","register");
         return model;
+    }
+
+    @RequestMapping(value = "/user_info",method = RequestMethod.GET)
+    public String userInfo(){
+
+        return "user_msg";
     }
 
     public static void jsonToResponse(JSONObject json, HttpServletResponse response)throws IOException{
